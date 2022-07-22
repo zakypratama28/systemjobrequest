@@ -38,13 +38,13 @@ class PengajuanTugasKerja extends Migration
                 'constraint' => 50
             ],
             'tgl_pengajuan' => [
-                'type' => 'DATETIME',
+                'type' => 'DATE',
             ],
             'tgl_rencana_selesai' => [
-                'type' => 'DATETIME',
+                'type' => 'DATE',
             ],
             'tgl_actual_selesai' => [
-                'type' => 'DATETIME',
+                'type' => 'DATE',
             ],
             'foto' => [
                 'type' => 'VARCHAR',

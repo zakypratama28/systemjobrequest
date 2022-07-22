@@ -24,3 +24,20 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+let formNambahAdmin = document.getElementById('formNambah');
+function nambahSwalForm(){
+    Swal.fire({
+        title: 'Apakah Anda Yakin',
+        text: "Anda Yakin Menambahkan Ini ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#87B4DE;',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'OK!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            formNambahAdmin.submit()
+        }
+    })
+}

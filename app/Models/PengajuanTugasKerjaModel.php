@@ -51,4 +51,18 @@ class PengajuanTugasKerjaModel extends Model
         return $builder->where($this->primaryKey,$id)->delete();
     }
 
+    public function listPengajuan($name,$tgl,$lokasi)
+    {
+        $builder = $this->db->table($this->table);
+        if (isset($name) && $name != '') {
+            $builder->like('nama_pengajuan',$name);
+        } 
+        if (isset($tgl) && $tgl != '') {
+            $builder->orLike('tgl_pengajuan',$tgl);
+        }
+        if (isset($lokasi) && $lokasi != '') {
+            $builder->orLike('lokasi',$lokasi);
+        }
+        return $builder->get()->getResultArray();
+    }
 }

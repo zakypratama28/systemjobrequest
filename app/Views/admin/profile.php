@@ -14,6 +14,10 @@
                                 <input class="form-control" type="text" value="<?= $user['no_employee'];?>" readonly>
                            </div>
                            <div class="form-group">
+                                <label class="form-label">Role</label>
+                                <input class="form-control" type="text" value="<?= session('nama_role');?>" readonly>
+                           </div>
+                           <div class="form-group">
                                 <label class="form-label">Password</label>
                                 <input class="form-control" type="text"  value="<?= $user['password'];?>" readonly>
                            </div>
@@ -32,6 +36,14 @@
                            <div class="form-group mb-4">
                                 <label class="form-label">Tahun Join</label>
                                 <input class="form-control" type="text"  value="<?= $user['tahun_masuk'];?>" readonly>
+                           </div> 
+                           <div class="form-group mb-4">
+                                <label class="form-label">Tahun Habis Kontrak</label>
+                                <input class="form-control" type="text"  value="<?= $user['tahun_habis_kontrak'];?>" readonly>
+                           </div> 
+                           <div class="form-group mb-4">
+                                <label class="form-label">Status</label>
+                                <input class="form-control" type="text"  value="<?= $user['status'];?>" readonly>
                            </div> 
                            <div class="d-flex justify-content-center align-items-center">
                                 <a class="btn btn-primary">Kembali</a>

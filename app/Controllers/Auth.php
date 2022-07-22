@@ -35,7 +35,8 @@ class Auth extends BaseController
                         'nama' => $data['nama'],
                         'login' => TRUE
                     ]);
-                    session()->setFlashdata('success_login', "Selamat Datang ".$data['nama']);
+                    session()->setFlashdata('success_text', "Selamat Datang ".$data['nama']);
+                    session()->setFlashdata('success_title', "Login Berhasil");
                     if ($data['nama_role'] == $this->roleModel::ROLE_ADMIN) {
                         return redirect()->to(base_url('/admin/beranda'));
                     }else{

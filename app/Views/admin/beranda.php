@@ -96,100 +96,227 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr class="bg-warning">
-                                        <th scope="col">Edit/Delete</th>
                                         <th>No</th>
-                                        <th>Request</th>
-                                        <th>Activity</th>
-                                        <th>Location</th>
-                                        <th>Date Request</th>
-                                        <th>Due Date</th>
-                                        <th>Action</th>
+                                        <th>Nama</th>
+                                        <th>Aktivitas</th>
+                                        <th>Deskripsi</th>
+                                        <th>Lokasi</th>
                                         <th>PIC</th>
-                                        <th>Status</th>
+                                        <th>Tgl Pengajuan</th>
+                                        <th>Rencana Selesai</th>
+                                        <th>Actual Selesai</th>
                                         <th>Photo</th>
+                                        <th>Status</th>
+                                        <th scope="col">Edit/Delete</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th scope="col">Edit/Delete</th>
-                                        <th>No</th>
-                                        <th>Request</th>
-                                        <th>Activity</th>
-                                        <th>Location</th>
-                                        <th>Date Request</th>
-                                        <th>Due Date</th>
-                                        <th>Action</th>
-                                        <th>PIC</th>
-                                        <th>Status</th>
-                                        <th>Photo</th>
-                                    </tr>
-                                    </tr>
-                                </tfoot>
                                 <tbody>
+                                    <?php 
+                                    $no = 1;
+                                    foreach ($list as $k) { 
+                                    ?>
                                     <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td><?= $k['nama_pengajuan'];?></td>
+                                        <td><?= $k['activity'];?></td>
+                                        <td><?= $k['deskripsi'];?></td>
+                                        <td><?= $k['lokasi'];?></td>
+                                        <td><?= $k['penanggung_jawab'];?></td>
+                                        <td><?=  custom_date_tgl($k['tgl_pengajuan']);?></td>
+                                        <td><?= custom_date_tgl($k['tgl_rencana_selesai']);?></td>
+                                        <td><?= custom_date_tgl($k['tgl_actual_selesai']);?></td>
                                         <td>
-                                            <a href="editdata.php"><span class="fas fa-edit bg-success p-1 text-white rounded"></span></a>
-                                            <a href="#"><span class="fas fa-trash-alt bg-danger p-1 text-white rounded" onclick="deleteData()"></span></a>
+                                            <a href="">
+                                                <img src="<?= base_url().'/uploads/'.$k['foto'];?>" width="100" height="100">
+                                            </a>
                                         </td>
-                                        <td>1</td>
-                                        <td>Hanny</td>
-                                        <td>Repair Lamp</td>
-                                        <td>Nijo Room</td>
-                                        <td>02/09/2021</td>
-                                        <td>03/09/2021</td>
-                                        <td>Internal</td>
-                                        <td>Zaky</td>
-                                        <td class="text-warning">On Progres</td>
-                                        <td><a href=""><img src="assets/img/Mechanical.png" width="100" height="100"></a></td>
-                                    </tr>
-                                    <tr>
+                                        <td 
+                                            <?php $status = 'text-warning';?>
+                                            <?php if($k['status'] == 'pengajuan_baru') { ?>
+                                            <?php $status = 'text-danger'; ?>
+                                            <?php } else if($k['status'] == 'dalam_pengajuan') { ?>
+                                            <?php $status = 'text-success'; ?>
+                                            <?php }?>
+                                            class="<?= $status;?>"
+                                        ><?= $k['status'];?></td>
                                         <td>
-                                            <a href="editdata.php"><span class="fas fa-edit bg-success p-1 text-white rounded"></span></a>
-                                            <a href="#"><span class="fas fa-trash-alt bg-danger p-1 text-white rounded" onclick="deleteData()"></span></a>
+                                            <button 
+                                               type="button"
+                                                class="btn btn-success"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#exampleUbah<?= $no;?>"
+                                            >
+                                                <span class="fas fa-edit p-1 text-white rounded"></span>
+                                            </button>
+                                            <button  
+                                                type="button"
+                                                class="btn btn-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#exampleHapus<?= $no;?>"
+                                            >
+                                                <span class="fas fa-trash-alt p-1 text-white rounded" onclick="deleteData()"></span>
+                                            </button>
                                         </td>
-                                        <td>2</td>
-                                        <td>Hanny</td>
-                                        <td>Repair Lamp</td>
-                                        <td>Nijo Room</td>
-                                        <td>02/09/2021</td>
-                                        <td>03/09/2021</td>
-                                        <td>Internal</td>
-                                        <td>Ilham</td>
-                                        <td class="text-warning">On Progres</td>
-                                        <td><img src="assets/img/facility.png" width="100" height="100"></td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="editdata.html"><span class="fas fa-edit bg-success p-1 text-white rounded"></span></a>
-                                            <a href="#"><span class="fas fa-trash-alt bg-danger p-1 text-white rounded" onclick="deleteData()"></span></a>
-                                        </td>
-                                        <td>3</td>
-                                        <td>Hanny</td>
-                                        <td>Repair Lamp</td>
-                                        <td>Nijo Room</td>
-                                        <td>02/09/2021</td>
-                                        <td>03/09/2021</td>
-                                        <td>Internal</td>
-                                        <td>Rokki</td>
-                                        <td class="text-warning">On Progres</td>
-                                        <td><img src="assets/img/Purchase.png" width="100" height="100"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="editdata.html"><span class="fas fa-edit bg-success p-1 text-white rounded"></span></a>
-                                            <a href="#"><span class="fas fa-trash-alt bg-danger p-1 text-white rounded" onclick="deleteData()"></span></a>
-                                        </td>
-                                        <td>4</td>
-                                        <td>Ilham</td>
-                                        <td>Repair Lamp</td>
-                                        <td>Nijo Room</td>
-                                        <td>02/09/2021</td>
-                                        <td>03/09/2021</td>
-                                        <td>Internal</td>
-                                        <td>Zaky</td>
-                                        <td>On Progres</td>
-                                        <td><img src="assets/img/Electrical.png" width="100" height="100"></td>
-                                    </tr>
+<div class="modal fade" id="exampleHapus<?= $no;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Pekerjaan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="<?= base_url('/admin/pengajuan/hapus/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
+                <div class="d-flex flex-column align-items-center justify-center">
+                    <img src="<?= base_url().'/assets/img/cancel.png';?>" alt="">
+                    <h2>Apakah kamu Yakin ?</h2>
+                    <p>Apakah Anda Ingin menghapus data pekerjaan ini</p>
+                </div>    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-danger">Iya</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleUbah<?= $no;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ubah Pekerjaan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="formUbah<?= $no;?>" action="<?= base_url('/admin/pengajuan/ubah/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Nama:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required value="<?= $k['nama_pengajuan'];?>" name="ubah_nama" class="form-control" placeholder="Tulis Nama">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Aktivitas Pekerjaan:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required value="<?= $k['activity'];?>" name="ubah_aktivitas" class="form-control" placeholder="Tulis Aktivitas Pekerjaan">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Deskripsi:</label>
+                                </div>
+                                <div class="col-9">
+                                    <textarea class="form-control" required name="ubah_deskripsi" placeholder="Tulis Deskripsi"><?= $k['deskripsi'];?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Lokasi:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" value="<?= $k['lokasi'];?>" required name="ubah_lokasi"  id="ubaLokasi" class="form-control" placeholder="Tulis Lokasi">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">PIC:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required name="ubah_pic" value="<?= $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Pengajuan:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" required name="ubah_tgl_pengajuan"  value="<?= $k['tgl_pengajuan'];?>" class="form-control" placeholder="Tulis Tanggal Pengajuan">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Rencana Selesai:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" value="<?= $k['tgl_rencana_selesai'];?>" required name="ubah_tgl_rencana_selesai" class="form-control" placeholder="Tulis Tanggal Rencana Selesai">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Actual Selesai:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" value="<?= $k['tgl_actual_selesai'];?>" required name="ubah_tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label for="formFile" class="form-label">Photo : </label>
+                                </div>
+                                <div class="col-9">
+                                    <input class="form-control" type="file" id="formFile" name="ubah_photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Status : </label>
+                                </div>
+                                <div class="col-9">
+                                    <select name="ubah_status" class="form-control" id="ubahSelect" required>
+                                        <option value="">--Pilih Status--</option>
+                                        <option <?php if($k['status'] == 'pengajuan_baru') { echo 'selected';} ?> value="pengajuan_baru">Pengajuan Baru</option>
+                                        <option  <?php if($k['status'] == 'dalam_pengerjaan') { echo 'selected';} ?> value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                        <option  <?php if($k['status'] == 'selesai') { echo 'selected';} ?> value="selesai">Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="row d-flex justify-between">
+                                <div class="col-3">
+                                    Hasil:
+                                </div>
+                                <div class="col-9">
+                                    <img src="<?= base_url().'/uploads/'.$k['foto'];?>" class="img-fluid" width="150" height="150">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-primary" onclick="<?= 'ubahSwalForm'.$no.'()';?>">Ubah</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -216,7 +343,7 @@
                                         :
                                     </div>
                                     <div class="col-9">
-                                        <input type="text" name="nama" class="form-control" >
+                                        <input type="text" name="cari_nama" class="form-control" value="<?php if(isset($_GET['cari_nama'])) { echo  $_GET['cari_nama']; } ?>">
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +358,7 @@
                                         :
                                     </div>
                                     <div class="col-9">
-                                        <input type="date" name="nama" class="form-control" >
+                                        <input type="date" name="cari_tgl_pengajuan" class="form-control"  value="<?php if(isset($_GET['cari_tgl_pengajuan'])) { echo  $_GET['cari_tgl_pengajuan']; } ?>">
                                     </div>
                                 </div>
                             </div>
@@ -246,7 +373,7 @@
                                         :
                                     </div>
                                     <div class="col-9">
-                                        <input type="text" name="lokasi" class="form-control" >
+                                        <input type="text" name="cari_lokasi" class="form-control" value="<?php if(isset($_GET['cari_lokasi'])) { echo  $_GET['cari_lokasi']; } ?>" >
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +382,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary">Cari</button>
+                <button type="submit" class="btn btn-primary">Cari</button>
                     </form>
             </div>
         </div>
@@ -317,36 +444,129 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Activity
-                            : </label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <form id="formNambah" action="<?= base_url('/admin/pengajuan/nambah');?>" method="post"  enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Nama:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required name="nama" class="form-control" placeholder="Tulis Nama">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Aktivitas Pekerjaan:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required name="aktivitas" class="form-control" placeholder="Tulis Aktivitas Pekerjaan">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Deskripsi:</label>
+                                </div>
+                                <div class="col-9">
+                                    <textarea class="form-control" required name="deskripsi" placeholder="Tulis Deskripsi"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Lokasi:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required name="lokasi" class="form-control" placeholder="Tulis Lokasi">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">PIC:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Pengajuan:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" required name="tgl_pengajuan" class="form-control" placeholder="Tulis Tanggal Pengajuan">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Rencana Selesai:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" required name="tgl_rencana_selesai" class="form-control" placeholder="Tulis Tanggal Rencana Selesai">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Tgl Actual Selesai:</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" required name="tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label for="formFile" class="form-label">Photo : </label>
+                                </div>
+                                <div class="col-9">
+                                    <input class="form-control" type="file" id="formFile" name="photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Status : </label>
+                                </div>
+                                <div class="col-9">
+                                    <select name="status" class="form-control" required>
+                                        <option value="">--Pilih Status--</option>
+                                        <option value="pengajuan_baru">Pengajuan Baru</option>
+                                        <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                        <option value="selesai">Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                            <div id="my_camera"></div>
+                            <br />
+                            <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                            <input type="hidden" name="image" id="image-tag">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div id="results">Your captured image will appear here...</div>
+                        </div> -->
                     </div>
-                    <div class="mb-2">
-                        <label for="exampleFormControlTextarea1" class="form-label">Location
-                            : </label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Photo : </label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
-                    <div class="col-md-6">
-                        <div id="my_camera"></div>
-                        <br />
-                        <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                        <input type="hidden" name="image" class="image-tag">
-                    </div>
-                    <div class="col-md-6">
-                        <div id="results">Your captured image will appear here...</div>
-                    </div>
-                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                <button type="button" class="btn btn-primary">SUBMIT</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-primary" onclick="nambahSwalForm()">Kirim</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

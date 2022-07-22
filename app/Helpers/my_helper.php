@@ -6,3 +6,7 @@ function alert_custom($session_name,$color){
         echo '</div>';
     }
 }
+
+function custom_date_tgl($date){
+    return date('d-M-y', strtotime($date));
+}

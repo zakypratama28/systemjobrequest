@@ -16,4 +16,5 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 /public/null/
+/public/uploads/
 /writable/debugbar/

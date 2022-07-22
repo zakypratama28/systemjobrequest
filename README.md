@@ -16,3 +16,16 @@ database.default.DBPrefix =
 6. lalu jalankan `php spark db:seed` lalu isikan `UserSeeder`.
 7. ketika sudah semua dilakukan lalu hidupkan `php spark serve`
 8. buka browser `http://localhost:8080`
+
+# Jika port tidak bisa digunakan
+1. Pilih port nya, misalkan
+```
+php spark serve --port 8081
+```
+2. kemudian setting file .env dari
+```
+# dari
+app.baseURL = 'http://localhost:8080' 
+# menjadi
+app.baseURL = 'http://localhost:8081' 
+```

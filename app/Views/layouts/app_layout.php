@@ -22,8 +22,12 @@
         $uri = current_url(true);
     ?>
     <?php if ($uri->getSegment(3) == 'beranda') { ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script> -->
     <?php } ?>
+    <?php
+        use App\Models\PengajuanTugasKerjaModel;
+        $pengajuan = new PengajuanTugasKerjaModel();
+    ?>
 </head>
 
 <body class="sb-nav-fixed">
@@ -38,33 +42,35 @@
     </div>
     </div>
     <!-- Configure a few settings and attach camera -->
-    <?php if(session()->getFlashdata('success_login')) { ?>
+    <?php if(session()->getFlashdata('success_title') && session()->getFlashdata('success_text')) { ?>
         <script>
         window.addEventListener('DOMContentLoaded', event => {
             Swal.fire({
                 icon: 'success',
-                title: 'Login Berhasil',
-                text: '<?= session()->getFlashdata('success_login');?>',
+                title: '<?= session()->getFlashdata('success_title');?>' ,
+                text: '<?= session()->getFlashdata('success_text');?>',
             })
         });
         </script>
     <?php } ?>
-    <script language="JavaScript">
-        Webcam.set({
-            width: 490,
-            height: 390,
-            image_format: 'jpeg',
-            jpeg_quality: 90
-        });
+    <script>
 
-        Webcam.attach('#my_camera');
+        // Webcam.set({
+        //     width: 490,
+        //     height: 390,
+        //     image_format: 'jpeg',
+        //     jpeg_quality: 90
+        // });
 
-        function take_snapshot() {
-            Webcam.snap(function(data_uri) {
-                $(".image-tag").val(data_uri);
-                document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-            });
-        }
+        // Webcam.attach('#my_camera');
+
+        // function take_snapshot() {
+        //     Webcam.snap(function(data_uri) {
+        //         // $(".image-tag").val(data_uri);
+        //         document.getElementById('image-tag').value = data_uri;
+        //         document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+        //     });
+        // }
 
         function swalLogout()
         {
@@ -91,6 +97,48 @@
     <script src="<?= base_url().'assets/demo/chart-bar-demo.js';?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="<?= base_url().'/assets/js/datatables-simple-demo.js';?>"></script>
+    <script>
+        <?php
+            $nama_pengajuan = isset($_GET['cari_nama']) ?? $_GET['cari_nama'];
+            $tgl_pengajuan = isset($_GET['cari_tgl_pengajuan']) ?? $_GET['cari_tgl_pengajuan'];
+            $lokasi = isset($_GET['cari_lokasi']) ?? $_GET['cari_lokasi'];
+            $l = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi);
+            $nop = 2;
+            foreach ($l as $k) {
+            echo 'function ubahSwalForm'.$nop.'(){ ';
+            echo "\n";
+            echo 'Swal.fire({';
+            echo "\n";
+            echo    "title: 'Apakah Anda Yakin',";
+            echo "\n";
+            echo    'text: "Anda Yakin Mengubah Data Ini ?",';
+            echo "\n";
+            echo     "icon: 'warning',";
+            echo "\n";
+            echo     "showCancelButton: true,";
+            echo "\n";
+            echo     "confirmButtonColor: '#87B4DE;',";
+            echo "\n";
+            echo     "cancelButtonColor: '#d33',";
+            echo "\n";
+            echo     "confirmButtonText: 'OK!'";
+            echo "\n";
+            echo     "}).then((result) => {";
+            echo "\n";
+            echo     "if (result.isConfirmed) {";
+            echo "\n";
+            echo     "document.getElementById('formUbah".$nop."').submit()";
+            echo "\n";
+            echo     "}";
+            echo "\n";
+            echo "})";
+            echo "\n";
+            echo "}";
+            echo "\n";
+            $nop++;
+            }
+        ?>
+    </script>
 </body>
 
 </html>
