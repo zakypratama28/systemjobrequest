@@ -41,3 +41,9 @@ function nambahSwalForm(){
         }
     })
 }
+
+function getSelectUbah(seletedObject)
+{
+    let value = seletedObject.value
+    window.location.href=`${window.BASE_URL}/admin/pengajuan/ubah_progress_status/${value}`;
+}

@@ -65,4 +65,30 @@ class PengajuanTugasKerjaModel extends Model
         }
         return $builder->get()->getResultArray();
     }
+
+    public function ubahProgresStatus($status)
+    {
+        $builder = $this->db->query('UPDATE pengajuan_tugas_kerja SET status="'.$status.'"');
+        return $builder;
+    }
+
+    public function countAllOrRow($id = false, $where = null)
+    {
+        $builder = $this->db->table($this->table);
+        if ($id && $where) {
+            $builder->where($where,$id);
+        }
+        return $builder->get()->getNumRows();
+    }
+
+    public function cari($dari,$status,$sampai)
+    {
+        $builder = $this->db->table($this->table);
+        if ($status == 'dalam_pengerjaan' || $status == 'selesai' || $status == 'pengajuan_baru') {
+            $builder->where('status',$status);
+        }
+        $builder->where('tgl_pengajuan >=', $dari);
+        $builder->where('tgl_pengajuan <=', $sampai);
+        return $builder->get()->getResultArray();
+    }
 }

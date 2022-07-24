@@ -22,7 +22,12 @@
         $uri = current_url(true);
     ?>
     <?php if ($uri->getSegment(3) == 'beranda') { ?>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script> -->
+        <style>
+            .zoom-gambar:hover {
+                transform: scale(2.5)
+            }
+        </style>
+        <!-- <link href="<?php// base_url();?>/assets/dist/css/lightbox.min.css" rel="stylesheet"> -->
     <?php } ?>
     <?php
         use App\Models\PengajuanTugasKerjaModel;
@@ -54,7 +59,7 @@
         </script>
     <?php } ?>
     <script>
-
+        window.BASE_URL = '<?= base_url();?>'
         // Webcam.set({
         //     width: 490,
         //     height: 390,
@@ -85,6 +90,22 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href="<?= base_url('/logout');?>"
+                }
+            })
+        }
+        function showSwalSelesai(status)
+        {
+            Swal.fire({
+                title: 'Apakah Anda Yakin',
+                text: "Yakin Bahwa Semua Status Akan Selesai",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#87B4DE;',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href=`<?= base_url('/admin/pengajuan/ubah_progress_status/');?>/${status}`
                 }
             })
         }
@@ -139,6 +160,7 @@
             }
         ?>
     </script>
+        <!-- <script src="<?php //base_url();?>/assets/dist/js/lightbox-plus-jquery.min.js"></script> -->
 </body>
 
 </html>

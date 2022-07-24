@@ -7,7 +7,7 @@ $role = new RLModel();
 .icon span{background: #f00;padding: 7px;border-radius: 50%;color: #fff;vertical-align: top;margin-left: -25px}
 .icon img{display: inline-block;width: 26px;margin-top: 4px}
 .icon:hover{opacity: .7}.logo{flex: 1;margin-left: 50px;color: #eee;font-size: 20px;font-family: monospace}
-.notifications{width: 250px;height: 0px;opacity: 0;position: absolute;top: 63px;right: 180px;border-radius: 5px 0px 5px 5px;background-color:#5091CF;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: #fff;}
+.notifications{display: none;width: 250px;height: 0px;opacity: 0;position: absolute;top: 63px;right: 180px;border-radius: 5px 0px 5px 5px;background-color:#5091CF;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: #fff;}
 .notifications h2{font-size: 14px;padding: 10px;border-bottom: 1px solid #eee;color: #fff}
 .notifications h2 span{color: red}
 .notifications-item{background-color: #fff;display: flex;border-bottom: 1px solid #eee;padding: 6px 9px;margin-bottom: 0px;cursor: pointer}
@@ -69,8 +69,8 @@ $role = new RLModel();
             </li>
         </ul>
 
-
     </nav>
+
 
 <script>
   var down = false;
@@ -82,29 +82,14 @@ $role = new RLModel();
         
         box.style.height = '0px';
         box.style.opacity = 0;
+        box.style.display = 'none';
         down = false;
     }else{
         
         box.style.height = 'auto';
         box.style.opacity = '1';
+        box.style.display = 'block';
         down = true;
     }
   })
-// $('#bell').click(function(e){
-          
-//             var color = $(this).text();
-//             if(down){
-                
-//                 $('#box').css('height','0px');
-//                 $('#box').css('opacity','0');
-//                 down = false;
-//             }else{
-                
-//                 $('#box').css('height','auto');
-//                 $('#box').css('opacity','1');
-//                 down = true;
-                
-//             }
-            
-//         });
 </script>

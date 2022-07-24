@@ -78,4 +78,12 @@ class Pengajuan extends BaseController
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/admin/beranda'));
     }
+
+    public function ubah_progress_status($status)
+    {
+        $this->pengajuanTugasKerjaModel->ubahProgresStatus($status);
+        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+        session()->setFlashdata('success_title', "Sukses");
+        return redirect()->to(base_url('/admin/beranda'));
+    }
 }

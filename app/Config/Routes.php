@@ -40,11 +40,14 @@ $routes->post('/', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->group('admin', ['filter' => 'authuseradmin'],function($routes){
     $routes->get('beranda','Admin\Beranda::index');
+    $routes->get('beranda/cari','Admin\Beranda::cari');
     $routes->get('profile','Admin\Profile::index');
     $routes->post('pengajuan/nambah','Admin\Pengajuan::nambah');
     $routes->post('pengajuan/ubah/(:segment)','Admin\Pengajuan::ubah/$1');
     $routes->post('pengajuan/hapus/(:segment)','Admin\Pengajuan::hapus/$1');
+    $routes->get('pengajuan/ubah_progress_status/(:segment)','Admin\Pengajuan::ubah_progress_status/$1');
 });
+
 $routes->group('karyawan', ['filter' => 'authuserkaryawan'],function($routes){
     $routes->get('beranda','Karyawan\Beranda::index');
 });

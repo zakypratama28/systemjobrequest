@@ -21,7 +21,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                                 Pekerjaan Baru</div>
-                                            <div class="h5 mb-0 font-weight-bold text-danger">20</div>
+                                            <div class="h5 mb-0 font-weight-bold text-danger"><?= $pengajuan_baru;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <a href="..."> <img src="<?= base_url().'/assets/img/baru.png';?>" width="70" height="70"></a>
@@ -39,7 +39,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                                 Dalam Pengerjaan</div>
-                                            <div class="h5 mb-0 font-weight-bold text-warning">15</div>
+                                            <div class="h5 mb-0 font-weight-bold text-warning"><?= $dalam_pengerjaan;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <a href="..."> <img src="<?= base_url().'/assets/img/progres.png';?>" width="70" height="70"></a>
@@ -51,7 +51,7 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card py-2">
+                            <div class="card py-2" onclick="showSwalSelesai('selesai');">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -59,11 +59,11 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-success">1</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-success"><?= $selesai;?></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto" >
                                             <a href="..."> <img src="<?= base_url().'/assets/img/complete.png';?>" width="70" height="70"></a>
                                         </div>
                                     </div>
@@ -131,14 +131,31 @@
                                             </a>
                                         </td>
                                         <td 
-                                            <?php $status = 'text-warning';?>
+                                            <?php $status = 'text-success';?>
                                             <?php if($k['status'] == 'pengajuan_baru') { ?>
                                             <?php $status = 'text-danger'; ?>
-                                            <?php } else if($k['status'] == 'dalam_pengajuan') { ?>
-                                            <?php $status = 'text-success'; ?>
+                                            <?php } else if($k['status'] == 'dalam_pengerjaan') { ?>
+                                            <?php $status = 'text-warning'; ?>
                                             <?php }?>
                                             class="<?= $status;?>"
-                                        ><?= $k['status'];?></td>
+                                        >
+                                            <!-- <form action=""> -->
+                                                <?php if($k['status'] == 'pengajuan_baru') { ?>
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this)">
+                                                        <option value="" disabled selected><?= $k['status'];?></option>
+                                                        <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                                        <option value="selesai">Selesai</option>
+                                                    </select>
+                                                <?php } else if($k['status'] == 'dalam_pengerjaan') { ?>
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this)">
+                                                        <option value="" disabled selected><?= $k['status'];?></option>
+                                                        <option value="selesai">Selesai</option>
+                                                    </select>
+                                                <?php }else{ ?>
+                                                <?= $k['status'];?>
+                                                <?php } ?>
+                                            <!-- </form> -->
+                                        </td>
                                         <td>
                                             <button 
                                                type="button"
@@ -288,10 +305,15 @@
                                 </div>
                                 <div class="col-9">
                                     <select name="ubah_status" class="form-control" id="ubahSelect" required>
-                                        <option value="">--Pilih Status--</option>
-                                        <option <?php if($k['status'] == 'pengajuan_baru') { echo 'selected';} ?> value="pengajuan_baru">Pengajuan Baru</option>
-                                        <option  <?php if($k['status'] == 'dalam_pengerjaan') { echo 'selected';} ?> value="dalam_pengerjaan">Dalam Pengerjaan</option>
-                                        <option  <?php if($k['status'] == 'selesai') { echo 'selected';} ?> value="selesai">Selesai</option>
+                                        <!-- <option value="">--Pilih Status--</option> -->
+                                        <?php if($k['status'] == 'pengajuan_baru') { ?> 
+                                            <option value="pengajuan_baru" disabled selected>Pengajuan Baru</option>
+                                            <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                            <option value="selesai">Selesai</option>
+                                        <?php } else if($k['status'] == 'dalam_pengerjaan'){ ?>
+                                            <option value="dalam_pengerjaan" disabled selected>Dalam Pengerjaan</option>
+                                            <option value="selesai">Selesai</option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -302,7 +324,7 @@
                                     Hasil:
                                 </div>
                                 <div class="col-9">
-                                    <img src="<?= base_url().'/uploads/'.$k['foto'];?>" class="img-fluid" width="150" height="150">
+                                    <img src="<?= base_url().'/uploads/'.$k['foto'];?>" class="img-fluid zoom-gambar" width="150" height="150">
                                 </div>
                             </div>
                         </div>
@@ -396,41 +418,34 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="<?= base_url().'/admin/beranda/cari';?>">
                 <div class="d-flex row">
                         <div class="col">
                             <div class="form-group">
                                 <label class="form-label">Dari Tanggal: </label>
-                                <input type="date" name="dari" class="form-control" >
+                                <input type="date" name="dari_tanggal" class="form-control" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-1">
                                 <label class="form-label">Pilih Status: </label>
-                                <select name="status" class="form-control">
+                                <select name="pilih_status" class="form-control">
                                     <option value="semua">Semua</option>
-                                    <option value="pekerjaanbaru">Pekerjaan Baru</option>
-                                    <option value="dalampengerjaan">Dalam Pengerjaan</option>
-                                    <option value="selesai">Selesai</option>
+                                        <option value="pengajuan_baru">Pengajuan Baru</option>
+                                        <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                        <option value="selesai">Selesai</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label class="form-label">Sampai Tanggal: </label>
-                                <input type="date" name="sampai" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Hasil Cetakan: </label>
-                                <select name="cetakan" class="form-control">
-                                    <option value="pdf">PDF</option>
-                                    <option value="excel">EXCEL</option>
-                                </select>
+                                <input type="date" name="sampai_tanggal" class="form-control" >
                             </div>
                         </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                <button type="button" class="btn btn-primary">Download Laporan</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary">Download Laporan</button>
                     </form>
             </div>
         </div>
