@@ -29,3 +29,8 @@ app.baseURL = 'http://localhost:8080'
 # menjadi
 app.baseURL = 'http://localhost:8081' 
 ```
+
+# Jika ingin menambah data dummy
+1. bisa di lihat `app/Database/Seeds`
+2. dan memakai file model.
+3. dan jalankan `php spark db:seed` lalu pilih filenya yang ada di `Seed`

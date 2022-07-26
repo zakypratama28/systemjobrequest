@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Karyawan;
 
 use App\Controllers\BaseController;
 use App\Models\PengajuanTugasKerjaModel;
@@ -38,10 +38,10 @@ class Pengajuan extends BaseController
         ];
         $this->pengajuanTugasKerjaModel->savePengajuan($data);
         SendEmail::send('adam@gmail.com','kevin@gmail.com','Reminder Job Request',$data);
-        $this->notifikasiController->sendMessage('Data Pekerjaan dari Admin '.$this->request->getVar('status'));
+        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Pengajuan Baru');
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
-        return redirect()->to(base_url('/admin/beranda'));
+        return redirect()->to(base_url('/karyawan/beranda'));
     }
 
     public function ubah($id)
@@ -62,11 +62,11 @@ class Pengajuan extends BaseController
             $upload->move(ROOTPATH.'public/uploads/', $fileNameUpload);
             $data['foto'] = $fileNameUpload;
         }
-        $this->notifikasiController->sendMessage('Data pengajuan pekerjaan dari admin telah '. $this->request->getVar('status'));
+        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah diubah');
         $this->pengajuanTugasKerjaModel->updatePengajuan($data,$id);
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
-        return redirect()->to(base_url('/admin/beranda'));
+        return redirect()->to(base_url('/karyawan/beranda'));
     }
 
     public function hapus($id)
@@ -74,14 +74,14 @@ class Pengajuan extends BaseController
         $model = $this->pengajuanTugasKerjaModel->getPengajuan($id);
         if (!$model) {
             session()->setFlashdata('error', "Data Tidak Ditemukan");
-            return redirect()->to(base_url('/admin/beranda'));
+            return redirect()->to(base_url('/karyawan/beranda'));
         }
-        $this->notifikasiController->sendMessage('Data pengajuan pekerjaan dari admin telah dihapus');
+        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah dihapus');
         $this->pengajuanTugasKerjaModel->deletePengajuan($id);
         @unlink(ROOTPATH.'public/uploads/'.$data['foto']);
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
-        return redirect()->to(base_url('/admin/beranda'));
+        return redirect()->to(base_url('/karyawan/beranda'));
     }
 
     public function ubah_progress_status($status,$id)
@@ -90,33 +90,33 @@ class Pengajuan extends BaseController
             $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
         }
         $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
-        $this->notifikasiController->sendMessage('Data pengajuan pekerjaan dari admin telah '.$status);
+        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah '.$status);
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
-        return redirect()->to(base_url('/admin/beranda'));
+        return redirect()->to(base_url('/karyawan/beranda'));
     }
 
-    public function umpan_balik($id)
-    {
-        $model = $this->pengajuanTugasKerjaModel->getUserPengajuan($id);
-        if (!$model) {
-            show_404();
-        }
-        $data['pengajuan'] = $model;
-        return view('admin/umpan_balik',$data);
-    }
+    // public function umpan_balik($id)
+    // {
+    //     $model = $this->pengajuanTugasKerjaModel->getUserPengajuan($id);
+    //     if (!$model) {
+    //         show_404();
+    //     }
+    //     $data['pengajuan'] = $model;
+    //     return view('admin/umpan_balik',$data);
+    // }
 
-    public function beri_umpan_balik($id)
-    {
-        $umpan_balik = $this->request->getPost('umpan');
-        $rating = $this->request->getPost('rating-input-1');
-        $data = [
-            'umpan_balik' => $umpan_balik,
-            'rating' => $rating
-        ];
-        $this->pengajuanTugasKerjaModel->updatePengajuan($data,$id);
-        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
-        session()->setFlashdata('success_title', "Sukses");
-        return redirect()->to(base_url('/admin/pengajuan/umpan_balik/'.$id));
-    }
+    // public function beri_umpan_balik($id)
+    // {
+    //     $umpan_balik = $this->request->getPost('umpan');
+    //     $rating = $this->request->getPost('rating-input-1');
+    //     $data = [
+    //         'umpan_balik' => $umpan_balik,
+    //         'rating' => $rating
+    //     ];
+    //     $this->pengajuanTugasKerjaModel->updatePengajuan($data,$id);
+    //     session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+    //     session()->setFlashdata('success_title', "Sukses");
+    //     return redirect()->to(base_url('/admin/pengajuan/umpan_balik/'.$id));
+    // }
 }

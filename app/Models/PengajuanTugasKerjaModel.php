@@ -20,6 +20,8 @@ class PengajuanTugasKerjaModel extends Model
         'tgl_actual_selesai',
         'foto',
         'status',
+        'umpan_balik',
+        'rating'
     ];
  	protected $primaryKey = 'id_pengajuan';
 
@@ -51,7 +53,7 @@ class PengajuanTugasKerjaModel extends Model
         return $builder->where($this->primaryKey,$id)->delete();
     }
 
-    public function listPengajuan($name,$tgl,$lokasi)
+    public function listPengajuan($name,$tgl,$lokasi,$no_employee = false)
     {
         $builder = $this->db->table($this->table);
         if (isset($name) && $name != '') {
@@ -63,13 +65,18 @@ class PengajuanTugasKerjaModel extends Model
         if (isset($lokasi) && $lokasi != '') {
             $builder->orLike('lokasi',$lokasi);
         }
+        if ($no_employee) {
+            $builder->where('no_employee',$no_employee);
+        }
         return $builder->get()->getResultArray();
     }
 
-    public function ubahProgresStatus($status)
+    public function ubahProgresStatus($status,$id)
     {
-        $builder = $this->db->query('UPDATE pengajuan_tugas_kerja SET status="'.$status.'"');
-        return $builder;
+        if ($id == 'undefined') {
+            return $this->db->query('UPDATE pengajuan_tugas_kerja SET status="'.$status.'"');
+        }
+        return $this->db->query('UPDATE pengajuan_tugas_kerja SET status="'.$status.'" WHERE id_pengajuan = "'.$id.'"');
     }
 
     public function countAllOrRow($id = false, $where = null)
@@ -90,5 +97,13 @@ class PengajuanTugasKerjaModel extends Model
         $builder->where('tgl_pengajuan >=', $dari);
         $builder->where('tgl_pengajuan <=', $sampai);
         return $builder->get()->getResultArray();
+    }
+
+    public function getUserPengajuan($id)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->join('user','user.no_employee = '.$this->table.'.no_employee');
+        $builder->where($this->table.'.id_pengajuan',$id);
+        return $builder->get()->getRowArray();
     }
 }

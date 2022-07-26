@@ -72,17 +72,17 @@
                         </div>
                     </div>
                     <div class="mb-4 py-2">
-                        <div class="d-flex justify-content-between ">
+                        <div class="d-flex">
                             <div>
                                 <button type="button" class=" btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                                     Add New Task</button>
                                 
-                                <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#exampleDownload" data-bs-whatever="@getbootstrap" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                    <i class="fas fa-download fa-sm text-white-50"></i> Download Record</a>
+                                <!-- <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#exampleDownload" data-bs-whatever="@getbootstrap" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                    <i class="fas fa-download fa-sm text-white-50"></i> Download Record</a> -->
                             </div>
                             <div >
-                                <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-info shadow-sm">
-                                    <i class="fas fa-search fa-sm text-white-50"></i> Pencarian</a>
+                                <!-- <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-info shadow-sm">
+                                    <i class="fas fa-search fa-sm text-white-50"></i> Pencarian</a> -->
                             </div>
                         </div>
 
@@ -173,9 +173,6 @@
                                             >
                                                 <span class="fas fa-trash-alt p-1 text-white rounded" onclick="deleteData()"></span>
                                             </button>
-                                            <?php if($k['status'] == 'selesai') { ?>
-                                                <a href="<?= base_url().'/admin/pengajuan/umpan_balik/'.$k['id_pengajuan'];?>" class="btn btn-warning btn-sm" style="font-size:10px;">Umpan Balik</a>
-                                            <?php } ?>
                                         </td>
                                     </tr>
 <div class="modal fade" id="exampleHapus<?= $no;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -186,7 +183,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?= base_url('/admin/pengajuan/hapus/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
+                <form method="post" action="<?= base_url('/karyawan/pengajuan/hapus/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
                 <div class="d-flex flex-column align-items-center justify-center">
                     <img src="<?= base_url().'/assets/img/cancel.png';?>" alt="">
                     <h2>Apakah kamu Yakin ?</h2>
@@ -209,7 +206,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" id="formUbah<?= $no;?>" action="<?= base_url('/admin/pengajuan/ubah/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
+                <form method="post" id="formUbahKaryawan<?= $no;?>" action="<?= base_url('/karyawan/pengajuan/ubah/'.$k['id_pengajuan']);?>"  enctype="multipart/form-data">
                     <div class="row">
                         <div class="mb-3 col-12">
                             <div class="d-flex justify-between row">
@@ -335,7 +332,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" onclick="<?= 'ubahSwalForm'.$no.'()';?>">Ubah</button>
+                <button type="button" class="btn btn-primary" onclick="<?= 'ubahSwalFormKaryawan'.$no.'()';?>">Ubah</button>
             </div>
             </form>
         </div>
@@ -462,7 +459,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formNambah" action="<?= base_url('/admin/pengajuan/nambah');?>" method="post"  enctype="multipart/form-data">
+                <form id="formNambahKaryawan" action="<?= base_url('/karyawan/pengajuan/nambah');?>" method="post"  enctype="multipart/form-data">
                     <div class="row">
                         <div class="mb-3 col-12">
                             <div class="d-flex justify-between row">
@@ -582,7 +579,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" onclick="nambahSwalForm()">Kirim</button>
+                <button type="button" class="btn btn-primary" onclick="nambahSwalKaryawanForm()">Kirim</button>
             </div>
             </form>
         </div>

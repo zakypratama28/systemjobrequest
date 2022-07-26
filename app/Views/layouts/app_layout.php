@@ -93,7 +93,7 @@
                 }
             })
         }
-        function showSwalSelesai(status)
+        function showSwalSelesai(status,id)
         {
             Swal.fire({
                 title: 'Apakah Anda Yakin',
@@ -105,11 +105,12 @@
                 confirmButtonText: 'OK!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href=`<?= base_url('/admin/pengajuan/ubah_progress_status/');?>/${status}`
+                    window.location.href=`<?= base_url('/admin/pengajuan/ubah_progress_status/');?>/${status}/${id}`
                 }
             })
         }
     </script>
+    <script src="<?= base_url().'/assets/js/jquery-3.3.1.min.js';?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url().'/assets/js/scripts.js';?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.23/dist/sweetalert2.all.min.js"></script>
@@ -124,7 +125,42 @@
             $tgl_pengajuan = isset($_GET['cari_tgl_pengajuan']) ?? $_GET['cari_tgl_pengajuan'];
             $lokasi = isset($_GET['cari_lokasi']) ?? $_GET['cari_lokasi'];
             $l = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi);
+            $p = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,session('no_employee'));
             $nop = 2;
+            $nol = 2;
+            foreach ($p as $k) {
+            echo 'function ubahSwalFormKaryawan'.$nol.'(){ ';
+            echo "\n";
+            echo 'Swal.fire({';
+            echo "\n";
+            echo    "title: 'Apakah Anda Yakin',";
+            echo "\n";
+            echo    'text: "Anda Yakin Mengubah Data Ini ?",';
+            echo "\n";
+            echo     "icon: 'warning',";
+            echo "\n";
+            echo     "showCancelButton: true,";
+            echo "\n";
+            echo     "confirmButtonColor: '#87B4DE;',";
+            echo "\n";
+            echo     "cancelButtonColor: '#d33',";
+            echo "\n";
+            echo     "confirmButtonText: 'OK!'";
+            echo "\n";
+            echo     "}).then((result) => {";
+            echo "\n";
+            echo     "if (result.isConfirmed) {";
+            echo "\n";
+            echo     "document.getElementById('formUbahKaryawan".$nol."').submit()";
+            echo "\n";
+            echo     "}";
+            echo "\n";
+            echo "})";
+            echo "\n";
+            echo "}";
+            echo "\n";
+            $nop++;
+            }
             foreach ($l as $k) {
             echo 'function ubahSwalForm'.$nop.'(){ ';
             echo "\n";

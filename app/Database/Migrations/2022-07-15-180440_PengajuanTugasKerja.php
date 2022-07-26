@@ -53,6 +53,14 @@ class PengajuanTugasKerja extends Migration
             'status' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20
+            ],
+            'umpan_balik' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ],
+            'rating' => [
+                'type' => 'INT',
+                'constraint' => 1
             ]
         ]);
  
