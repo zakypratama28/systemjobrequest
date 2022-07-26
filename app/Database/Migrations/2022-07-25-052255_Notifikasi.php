@@ -20,6 +20,11 @@ class Notifikasi extends Migration
                 'constraint'     => 255,
                 'default'        => NULL
             ],
+            'no_employee' => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+                'default'        => NULL
+            ],
             'tanggal'  => [
                 'type' => 'DATE',
                 'default' => NULL

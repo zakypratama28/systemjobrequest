@@ -257,7 +257,13 @@
                                     <label class="form-label">PIC:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="ubah_pic" value="<?= $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC">
+                                    <!-- <input type="text" required name="ubah_pic" value="<?= $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC"> -->
+                                    <select name="ubah_pic" required class="form-control">
+                                        <option value="">--PILIH PIC--</option>
+                                        <?php foreach ($user as $d) { ?>
+                                            <option <?php if($d['no_employee'] == $k['penanggung_jawab']) { echo 'selected'; }?> value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                        <?php } ?>
+                                    </select> 
                                 </div>
                             </div>
                         </div>
@@ -510,7 +516,12 @@
                                     <label class="form-label">PIC:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC">
+                                    <!-- <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC"> -->
+                                        <select name="pic" class="form-control">
+                                            <?php foreach ($user as $d) { ?>
+                                                <option value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                            <?php } ?>
+                                        </select>
                                 </div>
                             </div>
                         </div>

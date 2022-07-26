@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\PengajuanTugasKerjaModel;
 use App\Libraries\Email as SendEmail;
 use App\Libraries\Pdf;
+use App\Models\UserModel;
 
 class Beranda extends BaseController
 {
@@ -13,6 +14,7 @@ class Beranda extends BaseController
     {
         helper(['my_helper']);
         $this->pengajuanTugas = new PengajuanTugasKerjaModel();
+        $this->user = new UserModel();
     }
 
     public function index()
@@ -24,6 +26,7 @@ class Beranda extends BaseController
         $data['pengajuan_baru'] = $this->pengajuanTugas->countAllOrRow('pengajuan_baru','status');
         $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan','status');
         $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai','status');
+        $data['user'] = $this->user->getUserJoinRole();
         return view('admin/beranda',$data);
     }
 

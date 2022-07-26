@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\PengajuanTugasKerjaModel;
 use App\Libraries\Email as SendEmail;
 use App\Controllers\Notifikasi;
+use App\Models\UserModel;
+use App\Models\RoleModel;
 
 class Pengajuan extends BaseController
 {
@@ -14,6 +16,8 @@ class Pengajuan extends BaseController
         helper(['my_helper']);
         $this->pengajuanTugasKerjaModel = new PengajuanTugasKerjaModel();
         $this->notifikasiController = new Notifikasi();
+        $this->userModel = new UserModel();
+        $this->roleModel = new RoleModel();
     }
 
     public function nambah()
@@ -37,8 +41,25 @@ class Pengajuan extends BaseController
             'status' => $this->request->getVar('status')
         ];
         $this->pengajuanTugasKerjaModel->savePengajuan($data);
-        SendEmail::send('adam@gmail.com','kevin@gmail.com','Reminder Job Request',$data);
-        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Pengajuan Baru');
+        $pic = $this->request->getVar('pic');
+        if ($this->request->getVar('pic') == session('no_employee')) {
+            $user = $this->userModel->getUser(session('no_employee'),'no_employee');
+            SendEmail::send($user['email'],$user['email'],'Reminder Job Request',$data);
+            $this->notifikasiController->sendMessage('Data Pekerjaan dari Anda '.$this->request->getVar('status'),session('no_employee'));
+            $userAn = $this->userModel->getUserJoinRole();
+            foreach ($userAn as $k) {
+                if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
+                    $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' dari pengajuan baru',$k['no_employee']);
+                }
+            }
+        } else {
+            $userKaryawan = $this->userModel->getUser(session('no_employee'),'no_employee');
+            $userAdmin = $this->userModel->getUser($pic,'no_employee');
+            SendEmail::send($userKaryawan['email'],$userAdmin['email'],'Reminder Job Request',$data);
+            $this->notifikasiController->sendMessage('Karyawan telah mengajukan pekerjaan ke Leader',$userAdmin['no_employee']);
+        }
+        // SendEmail::send('adam@gmail.com','kevin@gmail.com','Reminder Job Request',$data);
+        // $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Pengajuan Baru');
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));
@@ -62,7 +83,13 @@ class Pengajuan extends BaseController
             $upload->move(ROOTPATH.'public/uploads/', $fileNameUpload);
             $data['foto'] = $fileNameUpload;
         }
-        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah diubah');
+        $userAdmin = $this->userModel->getUserJoinRole();
+        foreach ($userAdmin as $k) {
+            if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah diubah',$k['no_employee']);
+            }
+        }
+        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan diubah ',session('no_employee'));
         $this->pengajuanTugasKerjaModel->updatePengajuan($data,$id);
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
@@ -76,7 +103,13 @@ class Pengajuan extends BaseController
             session()->setFlashdata('error', "Data Tidak Ditemukan");
             return redirect()->to(base_url('/karyawan/beranda'));
         }
-        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah dihapus');
+        $userAdmin = $this->userModel->getUserJoinRole();
+        foreach ($userAdmin as $k) {
+            if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah dihapus',$k['no_employee']);
+            }
+        }
+        $this->notifikasiController->sendMessage('Anda telah mengubah pekerjaan menjadi status dihapus ',session('no_employee'));
         $this->pengajuanTugasKerjaModel->deletePengajuan($id);
         @unlink(ROOTPATH.'public/uploads/'.$data['foto']);
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
@@ -90,7 +123,13 @@ class Pengajuan extends BaseController
             $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
         }
         $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
-        $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah '.$status);
+        $userAdmin = $this->userModel->getUserJoinRole();
+        foreach ($userAdmin as $k) {
+            if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah '.$status,$k['no_employee']);
+            }
+        }
+        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan menjadi '.$status,session('no_employee'));
         session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));

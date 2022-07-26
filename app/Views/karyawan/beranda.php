@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="mb-4 py-2">
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-between">
                             <div>
                                 <button type="button" class=" btn btn-sm btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
                                     Add New Task</button>
@@ -81,8 +81,8 @@
                                     <i class="fas fa-download fa-sm text-white-50"></i> Download Record</a> -->
                             </div>
                             <div >
-                                <!-- <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-info shadow-sm">
-                                    <i class="fas fa-search fa-sm text-white-50"></i> Pencarian</a> -->
+                                <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-info shadow-sm">
+                                    <i class="fas fa-search fa-sm text-white-50"></i> Pencarian</a>
                             </div>
                         </div>
 
@@ -141,13 +141,13 @@
                                         >
                                             <!-- <form action=""> -->
                                                 <?php if($k['status'] == 'pengajuan_baru') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
                                                         <option value="" disabled selected><?= $k['status'];?></option>
                                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                                         <option style="color:green" value="selesai">Selesai</option>
                                                     </select>
                                                 <?php } else if($k['status'] == 'dalam_pengerjaan') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
                                                         <option style="color:yellow;" value="" disabled selected><?= $k['status'];?></option>
                                                         <option style="color:green;" value="selesai">Selesai</option>
                                                     </select>
@@ -254,7 +254,13 @@
                                     <label class="form-label">PIC:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="ubah_pic" value="<?= $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC">
+                                    <!-- <input type="text" required name="ubah_pic" value="<?php// $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC"> -->
+                                    <select name="ubah_pic" class="form-control">
+                                        <option value="">--Pilih PIC--</option>
+                                        <?php foreach($user as $d) { ?>
+                                            <option <?php if($k['penanggung_jawab'] == $d['no_employee']) { echo 'selected';} ?> value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -385,7 +391,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mt-2">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-2">
@@ -396,6 +402,48 @@
                                     </div>
                                     <div class="col-9">
                                         <input type="text" name="cari_lokasi" class="form-control" value="<?php if(isset($_GET['cari_lokasi'])) { echo  $_GET['cari_lokasi']; } ?>" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label class="form-label">PIC: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <!-- <input type="text" name="cari_pic" class="form-control" value="<?php if(isset($_GET['cari_pic'])) { echo  $_GET['cari_pic']; } ?>" > -->
+                                        <select name="cari_pic" class="form-control">
+                                            <option value="">--Pilih PIC--</option>
+                                            <?php foreach($user as $k) { ?>
+                                                <option value="<?= $k['no_employee'];?>"><?= $k['nama'];?> - <?= $k['nama_role'];?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label class="form-label">Status: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <!-- <input type="text" name="cari_pic" class="form-control" value="<?php if(isset($_GET['cari_pic'])) { echo  $_GET['cari_pic']; } ?>" > -->
+                                        <select name="cari_status" class="form-control">
+                                            <option value="">--Pilih Status--</option>
+                                            <option value="pengajuan_baru">Pengajuan Baru</option>
+                                            <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                            <option value="selesai">Selesai</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -507,7 +555,13 @@
                                     <label class="form-label">PIC:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC">
+                                    <!-- <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC"> -->
+                                    <select name="pic" required class="form-control">
+                                        <option value="">--PILIH PIC--</option>
+                                        <?php foreach ($user as $k) { ?>
+                                            <option value="<?= $k['no_employee'];?>"><?= $k['nama'];?> - <?= $k['nama_role'];?></option>
+                                        <?php } ?>
+                                    </select> 
                                 </div>
                             </div>
                         </div>

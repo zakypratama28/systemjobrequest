@@ -53,7 +53,7 @@ class PengajuanTugasKerjaModel extends Model
         return $builder->where($this->primaryKey,$id)->delete();
     }
 
-    public function listPengajuan($name,$tgl,$lokasi,$no_employee = false)
+    public function listPengajuan($name,$tgl,$lokasi,$no_employee = false,$pic = false,$status = false)
     {
         $builder = $this->db->table($this->table);
         if (isset($name) && $name != '') {
@@ -66,7 +66,13 @@ class PengajuanTugasKerjaModel extends Model
             $builder->orLike('lokasi',$lokasi);
         }
         if ($no_employee) {
-            $builder->where('no_employee',$no_employee);
+            $builder->where('penanggung_jawab',$no_employee);
+        }
+        if ($pic) {
+            $builder->where('pic',$pic);
+        }
+        if ($status) {
+            $builder->where('status',$status);
         }
         return $builder->get()->getResultArray();
     }
@@ -79,11 +85,14 @@ class PengajuanTugasKerjaModel extends Model
         return $this->db->query('UPDATE pengajuan_tugas_kerja SET status="'.$status.'" WHERE id_pengajuan = "'.$id.'"');
     }
 
-    public function countAllOrRow($id = false, $where = null)
+    public function countAllOrRow($id = false, $where = null,$no_employee = false)
     {
         $builder = $this->db->table($this->table);
         if ($id && $where) {
             $builder->where($where,$id);
+        }
+        if ($no_employee) {
+            $builder->where('penanggung_jawab',$no_employee);
         }
         return $builder->get()->getNumRows();
     }

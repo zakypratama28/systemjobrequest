@@ -22,10 +22,11 @@ class Notifikasi extends BaseController
         ]);
     }
 
-    public function sendMessage($pesan)
+    public function sendMessage($pesan,$no_employee)
     {
         $data = [
             'pesan' => $pesan,
+            'no_employee' => $no_employee,
             'tanggal' => date('Y-m-d'),
         ];
         $this->notifikasiModel->saveNotifikasi($data);

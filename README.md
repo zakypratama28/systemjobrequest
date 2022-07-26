@@ -34,3 +34,13 @@ app.baseURL = 'http://localhost:8081'
 1. bisa di lihat `app/Database/Seeds`
 2. dan memakai file model.
 3. dan jalankan `php spark db:seed` lalu pilih filenya yang ada di `Seed`
+
+# Jika ingin mengubah akun email
+1. lihat di file .env dan mau mengubah nya
+```
+email.protocol = 
+email.SMTPHost = 
+email.SMTPPort = 
+email.SMTPUser =
+email.SMTPPass =
+```

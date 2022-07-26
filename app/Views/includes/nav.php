@@ -34,7 +34,6 @@ $role = new RLModel();
         </form>
         <!-- Navccccbadffjsadsxzcrygygygybhuub-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <?php if(session('nama_role') == $role::ROLE_ADMIN) {?>
             <div class="nav-item icon position-relative" id="bell"> 
                 <img src="<?= base_url().'/assets/img/bell.png';?>" alt="">
                 <span id="countIcon" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -63,7 +62,6 @@ $role = new RLModel();
                         </div>
                     </div> -->
                 </div>
-            <?php } ?>
             <li class="nav-item dropdown">
                 <a class="me-3 btn btn-secondary dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi, <?= session('nama');?><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

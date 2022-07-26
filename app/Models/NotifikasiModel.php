@@ -10,6 +10,7 @@ class NotifikasiModel extends Model
     protected $useTimestamps = false; 
     protected $allowedFields = [
     	'pesan',
+        'no_employee',
         'tanggal',
         'aktif'
     ];
@@ -29,6 +30,7 @@ class NotifikasiModel extends Model
         if ($id && $where) {
             $builder->where($where,$id);
         }
+        $builder->where('no_employee',session('no_employee'));
         return $builder->get()->getNumRows();
     }
 
@@ -36,6 +38,7 @@ class NotifikasiModel extends Model
     {
         $builder = $this->db->table($this->table);
         $builder->where('aktif','belum');
+        $builder->where('no_employee',session('no_employee'));
         $builder->limit(3);
         $builder->orderBy('id_notifikasi','DESC');
         return $builder->get()->getResultArray();

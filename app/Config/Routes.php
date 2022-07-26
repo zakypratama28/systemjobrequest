@@ -59,7 +59,7 @@ $routes->group('karyawan', ['filter' => 'authuserkaryawan'],function($routes){
     $routes->post('pengajuan/nambah','Karyawan\Pengajuan::nambah');
     $routes->post('pengajuan/ubah/(:segment)','Karyawan\Pengajuan::ubah/$1');
     $routes->post('pengajuan/hapus/(:segment)','Karyawan\Pengajuan::hapus/$1');
-    // $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)','Admin\Pengajuan::ubah_progress_status/$1/$2');
+    $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)','Karyawan\Pengajuan::ubah_progress_status/$1/$2');
     // $routes->get('pengajuan/umpan_balik/(:segment)','Admin\Pengajuan::umpan_balik/$1');
     // $routes->post('pengajuan/beri_umpan_balik/(:segment)','Admin\Pengajuan::beri_umpan_balik/$1');
 });
