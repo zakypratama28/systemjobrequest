@@ -56,23 +56,25 @@ class PengajuanTugasKerjaModel extends Model
     public function listPengajuan($name,$tgl,$lokasi,$no_employee = false,$pic = false,$status = false)
     {
         $builder = $this->db->table($this->table);
+        $builder->select('*,pengajuan_tugas_kerja.status as status_tugas');
+        $builder->join('user','user.no_employee =  pengajuan_tugas_kerja.penanggung_jawab');
         if (isset($name) && $name != '') {
-            $builder->like('nama_pengajuan',$name);
+            $builder->like('pengajuan_tugas_kerja.nama_pengajuan',$name);
         } 
         if (isset($tgl) && $tgl != '') {
-            $builder->orLike('tgl_pengajuan',$tgl);
+            $builder->orLike('pengajuan_tugas_kerja.tgl_pengajuan',$tgl);
         }
         if (isset($lokasi) && $lokasi != '') {
-            $builder->orLike('lokasi',$lokasi);
+            $builder->orLike('pengajuan_tugas_kerja.lokasi',$lokasi);
         }
         if ($no_employee) {
-            $builder->where('penanggung_jawab',$no_employee);
+            $builder->where('pengajuan_tugas_kerja.no_employee',$no_employee);
         }
         if ($pic) {
-            $builder->where('pic',$pic);
+            $builder->where('pengajuan_tugas_kerja.penanggung_jawab',$pic);
         }
         if ($status) {
-            $builder->where('status',$status);
+            $builder->where('pengajuan_tugas_kerja.status',$status);
         }
         return $builder->get()->getResultArray();
     }

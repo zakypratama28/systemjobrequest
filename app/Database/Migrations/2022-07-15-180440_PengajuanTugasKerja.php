@@ -35,16 +35,20 @@ class PengajuanTugasKerja extends Migration
             ],
             'penanggung_jawab' => [
                 'type' => 'VARCHAR',
-                'constraint' => 50
+                'constraint' => 50,
+                'default' => NULL
             ],
             'tgl_pengajuan' => [
                 'type' => 'DATE',
+                'default' => NULL
             ],
             'tgl_rencana_selesai' => [
                 'type' => 'DATE',
+                'default' => NULL
             ],
             'tgl_actual_selesai' => [
                 'type' => 'DATE',
+                'default' => NULL
             ],
             'foto' => [
                 'type' => 'VARCHAR',

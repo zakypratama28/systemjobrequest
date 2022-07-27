@@ -16,8 +16,8 @@
   display: inline-block;
   /* border-radius: 50%; */
   /* background-color: #ddd; */
-  /* content: "\f005"; */
-  content: '\25CF';
+  content: "\f005";
+  /* content: '\25CF'; */
 }
 
 .rating > .half:before { 
@@ -47,7 +47,7 @@
 } 
 
 .rating.active > input:checked ~ label { 
-    color: black;  
+    color: #f2e93d;  
 }
 .rating.active:hover > input:checked ~ label {
     color: #ddd;
@@ -57,7 +57,7 @@
 .rating.active > input:checked ~ label:hover,
 .rating.active > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating.active > input:checked ~ label:hover ~ label {
-    color: black;
+    color: #f2e93d;
 } 
 </style>
                 <div class="container-fluid">
@@ -124,7 +124,7 @@
                                         <td colspan="2">Beri Umpan Balik</td>
                                         <td colspan="2">
                                             <?php if($pengajuan['umpan_balik'] == "") {?>
-                                                <input type="text" class="form-control" name="umpan" placeholder="Beri Umpan Balik">
+                                                <input type="text" class="form-control" name="umpan" placeholder="Beri Umpan Balik" required>
                                             <?php } else {?>
                                             <?= $pengajuan['umpan_balik']; ?>
                                             <?php } ?>
@@ -146,7 +146,7 @@
                                             <input type="radio" value="2" <?php if($pengajuan['rating'] == 2 && $pengajuan['rating'] != null) { echo 'checked'; }?> class="rating-input" id="rating-input-1-2" name="rating-input-1" />
                                             <label for="rating-input-1-2" class="star"></label>
                                             
-                                            <input type="radio" value="1" <?php if($pengajuan['rating'] == 1 && $pengajuan['rating'] != null) { echo 'checked'; }?> class="rating-input" id="rating-input-1-1" name="rating-input-1" />
+                                            <input type="radio" required value="1" <?php if($pengajuan['rating'] == 1 && $pengajuan['rating'] != null) { echo 'checked'; }?> class="rating-input" id="rating-input-1-1" name="rating-input-1" />
                                             <label for="rating-input-1-1" class="star"></label>
                                         </fieldset>
                                         </td>

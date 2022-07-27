@@ -1,6 +1,11 @@
 <?= $this->extend('layouts/app_layout') ?>
 
 <?= $this->section('content') ?>
+<?php
+use App\Models\RoleModel as RLModel;
+$role = new RLModel();
+?>
+
                 <div class="container-fluid px-4 mt-5">
 
                     <!-- Page Heading -->
@@ -121,10 +126,10 @@
                                         <td><?= $k['activity'];?></td>
                                         <td><?= $k['deskripsi'];?></td>
                                         <td><?= $k['lokasi'];?></td>
-                                        <td><?= $k['penanggung_jawab'];?></td>
+                                        <td><?= $k['nama'];?></td>
                                         <td><?=  custom_date_tgl($k['tgl_pengajuan']);?></td>
                                         <td><?= custom_date_tgl($k['tgl_rencana_selesai']);?></td>
-                                        <td><?= custom_date_tgl($k['tgl_actual_selesai']);?></td>
+                                        <td><?php if($k['tgl_actual_selesai'] == NULL ) { echo '-'; } else { echo custom_date_tgl($k['tgl_actual_selesai']);} ?></td>
                                         <td>
                                             <a href="">
                                                 <img src="<?= base_url().'/uploads/'.$k['foto'];?>" width="100" height="100">
@@ -132,27 +137,27 @@
                                         </td>
                                         <td 
                                             <?php $status = 'text-success';?>
-                                            <?php if($k['status'] == 'pengajuan_baru') { ?>
+                                            <?php if($k['status_tugas'] == 'pengajuan_baru') { ?>
                                             <?php $status = 'text-danger'; ?>
-                                            <?php } else if($k['status'] == 'dalam_pengerjaan') { ?>
+                                            <?php } else if($k['status_tugas'] == 'dalam_pengerjaan') { ?>
                                             <?php $status = 'text-warning'; ?>
                                             <?php }?>
                                             class="<?= $status;?>"
                                         >
                                             <!-- <form action=""> -->
-                                                <?php if($k['status'] == 'pengajuan_baru') { ?>
+                                                <?php if($k['status_tugas'] == 'pengajuan_baru') { ?>
                                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
-                                                        <option value="" disabled selected><?= $k['status'];?></option>
+                                                        <option value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                                         <option style="color:green" value="selesai">Selesai</option>
                                                     </select>
-                                                <?php } else if($k['status'] == 'dalam_pengerjaan') { ?>
+                                                <?php } else if($k['status_tugas'] == 'dalam_pengerjaan') { ?>
                                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
-                                                        <option style="color:yellow;" value="" disabled selected><?= $k['status'];?></option>
+                                                        <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:green;" value="selesai">Selesai</option>
                                                     </select>
                                                 <?php }else{ ?>
-                                                    <?= $k['status'];?>
+                                                    <?= $k['status_tugas'];?>
                                                 <?php } ?>
                                             <!-- </form> -->
                                         </td>
@@ -173,7 +178,7 @@
                                             >
                                                 <span class="fas fa-trash-alt p-1 text-white rounded" onclick="deleteData()"></span>
                                             </button>
-                                            <?php if($k['status'] == 'selesai') { ?>
+                                            <?php if($k['status_tugas'] == 'selesai') { ?>
                                                 <a href="<?= base_url().'/admin/pengajuan/umpan_balik/'.$k['id_pengajuan'];?>" class="btn btn-warning btn-sm" style="font-size:10px;">Umpan Balik</a>
                                             <?php } ?>
                                         </td>
@@ -261,7 +266,9 @@
                                     <select name="ubah_pic" required class="form-control">
                                         <option value="">--PILIH PIC--</option>
                                         <?php foreach ($user as $d) { ?>
-                                            <option <?php if($d['no_employee'] == $k['penanggung_jawab']) { echo 'selected'; }?> value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                            <?php if($d['nama_role'] == $role::ROLE_KARYAWAN) { ?>
+                                                <option <?php if($d['no_employee'] == $k['penanggung_jawab']) { echo 'selected'; }?> value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                            <?php } ?>
                                         <?php } ?>
                                     </select> 
                                 </div>
@@ -315,11 +322,11 @@
                                 <div class="col-9">
                                     <select name="ubah_status" class="form-control" id="ubahSelect" required>
                                         <!-- <option value="">--Pilih Status--</option> -->
-                                        <?php if($k['status'] == 'pengajuan_baru') { ?> 
+                                        <?php if($k['status_tugas'] == 'pengajuan_baru') { ?> 
                                             <option value="pengajuan_baru" disabled selected>Pengajuan Baru</option>
                                             <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                             <option value="selesai">Selesai</option>
-                                        <?php } else if($k['status'] == 'dalam_pengerjaan'){ ?>
+                                        <?php } else if($k['status_tugas'] == 'dalam_pengerjaan'){ ?>
                                             <option value="dalam_pengerjaan" disabled selected>Dalam Pengerjaan</option>
                                             <option value="selesai">Selesai</option>
                                         <?php } ?>
@@ -409,6 +416,50 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-12 mt-2">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label class="form-label">PIC: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <!-- <input type="text" name="cari_pic" class="form-control" value="<?php if(isset($_GET['cari_pic'])) { echo  $_GET['cari_pic']; } ?>" > -->
+                                        <select name="cari_pic" class="form-control">
+                                            <option value="">--Pilih PIC--</option>
+                                            <?php foreach($user as $k) { ?>
+                                                <?php if($k['nama_role'] == $role::ROLE_KARYAWAN) {?>
+                                                <option value="<?= $k['no_employee'];?>"><?= $k['nama'];?> - <?= $k['nama_role'];?></option>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label class="form-label">Status: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <!-- <input type="text" name="cari_pic" class="form-control" value="<?php if(isset($_GET['cari_pic'])) { echo  $_GET['cari_pic']; } ?>" > -->
+                                        <select name="cari_status" class="form-control">
+                                            <option value="">--Pilih Status--</option>
+                                            <option value="pengajuan_baru">Pengajuan Baru</option>
+                                            <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
+                                            <option value="selesai">Selesai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -427,7 +478,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url().'/admin/beranda/cari';?>">
+                <form action="<?= base_url().'/admin/beranda/cari';?>" target="__blank">
                 <div class="d-flex row">
                         <div class="col">
                             <div class="form-group">
@@ -519,7 +570,9 @@
                                     <!-- <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC"> -->
                                         <select name="pic" class="form-control">
                                             <?php foreach ($user as $d) { ?>
-                                                <option value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                                <?php if($d['nama_role'] == $role::ROLE_KARYAWAN){?>
+                                                    <option value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
+                                                <?php } ?>
                                             <?php } ?>
                                         </select>
                                 </div>
@@ -551,7 +604,7 @@
                                     <label class="form-label">Tgl Actual Selesai:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="date" required name="tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                    <input type="date" readonly disabled name="tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
                                 </div>
                             </div>
                         </div>

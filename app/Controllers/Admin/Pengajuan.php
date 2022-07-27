@@ -34,7 +34,7 @@ class Pengajuan extends BaseController
             'penanggung_jawab' => $this->request->getVar('pic'),
             'tgl_pengajuan' => $this->request->getVar('tgl_pengajuan'),
             'tgl_rencana_selesai' => $this->request->getVar('tgl_rencana_selesai'),
-            'tgl_actual_selesai' => $this->request->getVar('tgl_actual_selesai'),
+            'tgl_actual_selesai' => NULL,
             'foto' => $fileNameUpload,
             'status' => $this->request->getVar('status')
         ];
@@ -47,8 +47,9 @@ class Pengajuan extends BaseController
         } else {
             $userAdmin = $this->userModel->getUser(session('no_employee'),'no_employee');
             $userKaryawan = $this->userModel->getUser($pic,'no_employee');
-            var_dump($userKaryawan);
+            // var_dump($userKaryawan);
             SendEmail::send($userAdmin['email'],$userKaryawan['email'],'Reminder Job Request',$data);
+            $this->notifikasiController->sendMessage('Anda Telah Mengajukan pekerjaan '.$this->request->getVar('status'),session('no_employee'));
             $this->notifikasiController->sendMessage('Leader telah mengajukan pekerjaan ke anda ',$userKaryawan['no_employee']);
         }
         

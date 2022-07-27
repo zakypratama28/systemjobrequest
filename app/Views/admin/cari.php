@@ -1,37 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
     <style>
-table {
-  caption-side: bottom;
-  border-collapse: collapse;
-}
-.table{
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
-  vertical-align: top;
-  border-color: #dee2e6;
-}
-.table > :not(caption) > * > *{
-  padding: 0.5rem 0.5rem;
-  background-color: var(--bs-table-bg);
-  border-bottom-width: 1px;
-  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-}
-.table > tbody, .dataTable-table > tbody {
-  vertical-align: inherit;
-}
-.table > thead, .dataTable-table > thead {
-  vertical-align: bottom;
-} .table > :not(:last-child) > :last-child > *, .dataTable-table > :not(:last-child) > :last-child > * {
-  border-bottom-color: currentColor;
-}
-.table-bordered > :not(caption) > *, .dataTable-table > :not(caption) > * {
-  border-width: 1px 0;
-}
-.table-bordered > :not(caption) > * > *, .dataTable-table > :not(caption) > * > * {
-  border-width: 0 1px;
+@media print {
+  table, td {
+    caption-side: bottom;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    /* border-color: #dee2e6; */
+    border: 5px solid;
+  }
 }
     </style>
-   <table class="table table-bordered">
+      <?php
+        $dari = $dari != null ? custom_date_tgl($dari) : '-';
+        $sampai = $sampai != null ? custom_date_tgl($sampai) : '-';
+        $status = 'Semua';
+        if ($pilih_status == 'pengerjaan_baru') {
+            $status = 'Pengerjaan Baru';
+        } else if($pilih_status == 'dalam_pengerjaan') {
+            $status = 'Dalam Pengerjaan';
+        } else if($pilih_status == 'selesai') {
+            $status = 'Selesai';
+        }
+      ?>
+   <table  class="table table-bordered">
+        <tr>
+          <td colspan="2">Dari Tanggal</td>
+          <td colspan="2" valign="middle"><?= $dari; ?></td>
+          <td colspan="7" rowspan="3"></td>
+        </tr>
+        <tr>
+          <td colspan="2">Sampai Tanggal</td>
+          <td colspan="2" valign="middle"><?= $sampai; ?></td>
+        </tr>
+        <tr>
+          <td colspan="2">Status</td>
+          <td colspan="2" valign="middle"><?= $status; ?>
+        </tr>
         <tr>
             <td>No</td>
             <td>Nama</td>
@@ -84,3 +100,10 @@ table {
         </tr>
     <?php }?>
    </table> 
+
+<script>
+  window.print();
+</script>
+
+</body>
+</html>

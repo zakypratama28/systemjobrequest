@@ -12,6 +12,7 @@ class Email
             'SMTPPort' => $_ENV['email.SMTPPort'],
             'SMTPUser' => $_ENV['email.SMTPUser'],
             'SMTPPass' => $_ENV['email.SMTPPass'],
+            'SMTPCrypto' => $_ENV['email.SMTPCrypto'],
             'CRLF' => "\r\n",
             'newline' => "\r\n"
         );

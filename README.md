@@ -43,4 +43,5 @@ email.SMTPHost =
 email.SMTPPort = 
 email.SMTPUser =
 email.SMTPPass =
+email.SMTPCrypto = 
 ```
