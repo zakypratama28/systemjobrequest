@@ -23,7 +23,7 @@ class Beranda extends BaseController
         $lokasi = $this->request->getGet('cari_lokasi');
         $pic = $this->request->getGet('cari_pic');
         $status = $this->request->getGet('cari_status');
-        $data['list'] = $this->pengajuanTugas->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,session('no_employee'),$pic,$status);
+        $data['list'] = $this->pengajuanTugas->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,session('no_employee'),$status);
         $data['pengajuan_baru'] = $this->pengajuanTugas->countAllOrRow('pengajuan_baru','status',session('no_employee'));
         $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan','status',session('no_employee'));
         $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai','status',session('no_employee'));

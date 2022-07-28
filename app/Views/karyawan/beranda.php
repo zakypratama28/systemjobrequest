@@ -55,7 +55,8 @@ $role = new RLModel();
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card py-2" onclick="showSwalSelesai('selesai');">
+                            <!-- <div class="card py-2" onclick="showSwalSelesai('selesai');"> -->
+                            <div class="card py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -144,14 +145,14 @@ $role = new RLModel();
                                             class="<?= $status;?>"
                                         >
                                             <!-- <form action=""> -->
-                                                <?php if($k['status'] == 'pengajuan_baru') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
+                                                <?php if($k['status_tugas'] == 'pengajuan_baru') { ?>
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
                                                         <option value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                                         <option style="color:green" value="selesai">Selesai</option>
                                                     </select>
                                                 <?php } else if($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
                                                         <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:green;" value="selesai">Selesai</option>
                                                     </select>
@@ -296,7 +297,7 @@ $role = new RLModel();
                                     <label class="form-label">Tgl Actual Selesai:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input readonly disabled type="date" value="<?= $k['tgl_actual_selesai'];?>" required name="ubah_tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                    <input type="date" value="<?= $k['tgl_actual_selesai'];?>" required name="ubah_tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
                                 </div>
                             </div>
                         </div>
@@ -426,7 +427,7 @@ $role = new RLModel();
                                         <select name="cari_pic" class="form-control">
                                             <option value="">--Pilih PIC--</option>
                                             <?php foreach($user as $k) { ?>
-                                                <?php if($k['role'] == $role::ROLE_KARYAWAN){?>
+                                                <?php if($k['nama_role'] == $role::ROLE_KARYAWAN){?>
                                                     <option value="<?= $k['no_employee'];?>"><?= $k['nama'];?> - <?= $k['nama_role'];?></option>
                                                 <?php } ?>
                                             <?php } ?>
@@ -601,7 +602,7 @@ $role = new RLModel();
                                     <label class="form-label">Tgl Actual Selesai:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="date" required name="tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                    <input type="date" disabled required name="tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
                                 </div>
                             </div>
                         </div>

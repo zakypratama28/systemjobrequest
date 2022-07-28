@@ -58,6 +58,17 @@
         });
         </script>
     <?php } ?>
+    <?php if(session()->getFlashdata('error_title') && session()->getFlashdata('error_text')) { ?>
+        <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            Swal.fire({
+                icon: 'error',
+                title: '<?= session()->getFlashdata('error_title');?>' ,
+                text: '<?= session()->getFlashdata('error_text');?>',
+            })
+        });
+        </script>
+    <?php } ?>
     <script>
         window.BASE_URL = '<?= base_url();?>'
         // Webcam.set({
@@ -93,7 +104,7 @@
                 }
             })
         }
-        function showSwalSelesai(status,id)
+        function showSwalSelesai(status,id,name)
         {
             Swal.fire({
                 title: 'Apakah Anda Yakin',
@@ -106,6 +117,23 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href=`<?= base_url('/admin/pengajuan/ubah_progress_status/');?>/${status}/${id}`
+                }
+            })
+        }
+
+        function showSwalSelesaiKaryawan(status,id)
+        {
+            Swal.fire({
+                title: 'Apakah Anda Yakin',
+                text: "Yakin Bahwa Semua Status Akan Selesai",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#87B4DE;',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href=`<?= base_url('/karyawan/pengajuan/ubah_progress_status/');?>/${status}/${id}`
                 }
             })
         }
@@ -124,8 +152,10 @@
             $nama_pengajuan = isset($_GET['cari_nama']) ?? $_GET['cari_nama'];
             $tgl_pengajuan = isset($_GET['cari_tgl_pengajuan']) ?? $_GET['cari_tgl_pengajuan'];
             $lokasi = isset($_GET['cari_lokasi']) ?? $_GET['cari_lokasi'];
-            $l = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi);
-            $p = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,session('no_employee'));
+            $pic = isset($_GET['cari_pic']) ?? $_GET['cari_pic'];
+            $status = isset($_GET['cari_status']) ?? $_GET['cari_status'];
+            $l = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,$pic,$status);
+            $p = $pengajuan->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,session('no_employee'),$status);
             $nop = 2;
             $nol = 2;
             foreach ($p as $k) {

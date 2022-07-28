@@ -102,9 +102,11 @@ class PengajuanTugasKerjaModel extends Model
     public function cari($dari,$status,$sampai)
     {
         $builder = $this->db->table($this->table);
+        $builder->select('*,pengajuan_tugas_kerja.status as status_tugas');
         if ($status == 'dalam_pengerjaan' || $status == 'selesai' || $status == 'pengajuan_baru') {
             $builder->where('status',$status);
         }
+        $builder->join('user','user.no_employee = '.$this->table.'.penanggung_jawab');
         $builder->where('tgl_pengajuan >=', $dari);
         $builder->where('tgl_pengajuan <=', $sampai);
         return $builder->get()->getResultArray();

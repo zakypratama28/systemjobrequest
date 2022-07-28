@@ -146,13 +146,13 @@ $role = new RLModel();
                                         >
                                             <!-- <form action=""> -->
                                                 <?php if($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
                                                         <option value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                                         <option style="color:green" value="selesai">Selesai</option>
                                                     </select>
                                                 <?php } else if($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>)">
+                                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
                                                         <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas'];?></option>
                                                         <option style="color:green;" value="selesai">Selesai</option>
                                                     </select>
@@ -265,6 +265,7 @@ $role = new RLModel();
                                     <!-- <input type="text" required name="ubah_pic" value="<?= $k['penanggung_jawab'];?>" class="form-control" placeholder="Tulis PIC"> -->
                                     <select name="ubah_pic" required class="form-control">
                                         <option value="">--PILIH PIC--</option>
+                                        <option <?php if(session('no_employee') == $k['penanggung_jawab']) { echo 'selected';} ?> value="<?= session('no_employee');?>"><?= session('nama');?> - <?= session('nama_role');?></option>
                                         <?php foreach ($user as $d) { ?>
                                             <?php if($d['nama_role'] == $role::ROLE_KARYAWAN) { ?>
                                                 <option <?php if($d['no_employee'] == $k['penanggung_jawab']) { echo 'selected'; }?> value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>
@@ -569,6 +570,8 @@ $role = new RLModel();
                                 <div class="col-9">
                                     <!-- <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC"> -->
                                         <select name="pic" class="form-control">
+                                            <option>-- PILIH PIC --</option>
+                                            <option value="<?= session('no_employee');?>"><?= session('nama');?> - <?= session('nama_role');?></option>
                                             <?php foreach ($user as $d) { ?>
                                                 <?php if($d['nama_role'] == $role::ROLE_KARYAWAN){?>
                                                     <option value="<?= $d['no_employee'];?>"><?= $d['nama'];?> - <?= $d['nama_role'];?></option>

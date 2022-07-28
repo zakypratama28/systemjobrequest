@@ -86,4 +86,15 @@ class UserModel extends Model
         } 
         return $builder->get()->getResultArray();
     }
+
+    public function getUserJoinPengajuanTugas($id = false,$where = null)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->join('pengajuan_tugas_kerja','pengajuan_tugas_kerja.no_employee=user.no_employee');
+        if ($id && $where) {
+            $builder->where($where,$id);
+            return $builder->get()->getRowArray();
+        } 
+        return $builder->get()->getResultArray();
+    }
 }

@@ -77,7 +77,7 @@
             <td><?= $k['activity'];?></td>
             <td><?= $k['deskripsi'];?></td>
             <td><?= $k['lokasi'];?></td>
-            <td><?= $k['penanggung_jawab'];?></td>
+            <td><?= $k['nama'];?></td>
             <td><?=  custom_date_tgl($k['tgl_pengajuan']);?></td>
             <td><?= custom_date_tgl($k['tgl_rencana_selesai']);?></td>
             <td><?= custom_date_tgl($k['tgl_actual_selesai']);?></td>
@@ -86,13 +86,13 @@
             </td>
             <td 
                 <?php $status = 'text-success';?>
-                <?php if($k['status'] == 'pengajuan_baru') { ?>
+                <?php if($k['status_tugas'] == 'pengajuan_baru') { ?>
                 <?php $status = 'text-danger'; ?>
-                <?php } else if($k['status'] == 'dalam_pengajuan') { ?>
+                <?php } else if($k['status_tugas'] == 'dalam_pengajuan') { ?>
                 <?php $status = 'text-warning'; ?>
                 <?php }?>
                 class="<?= $status;?>"
-            ><?= $k['status'];?></td>
+            ><?= $k['status_tugas'];?></td>
         </tr>
     <?php }} else { ?>
         <tr>

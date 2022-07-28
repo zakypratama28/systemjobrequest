@@ -39,6 +39,7 @@ class Pengajuan extends BaseController
             'status' => $this->request->getVar('status')
         ];
         $this->pengajuanTugasKerjaModel->savePengajuan($data);
+        $data['ses_nama'] = session('nama');
         $pic = $this->request->getVar('pic');
         if ($this->request->getVar('pic') == session('no_employee')) {
             $user = $this->userModel->getUser(session('no_employee'),'no_employee');
@@ -111,6 +112,17 @@ class Pengajuan extends BaseController
 
     public function ubah_progress_status($status,$id)
     {
+        $nama_pengajuan = $this->request->getGet('cari_nama');
+        $tgl_pengajuan = $this->request->getGet('cari_tgl_pengajuan');
+        $lokasi = $this->request->getGet('cari_lokasi');
+        $pic = $this->request->getGet('cari_pic');
+        $statusCari = $this->request->getGet('cari_status');
+        $list = $this->pengajuanTugasKerjaModel->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,$pic,$statusCari);
+        if (count($list) == 0) {
+            session()->setFlashdata('error_text', "Ada Kesalahan terjadi");
+            session()->setFlashdata('error_title', "Error");
+            return redirect()->to(base_url('/admin/beranda'));
+        }
         if($id == 'undefined'){
             $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
         }

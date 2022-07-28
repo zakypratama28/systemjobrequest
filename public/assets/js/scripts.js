@@ -58,16 +58,20 @@ function nambahSwalKaryawanForm(){
         }
     })
 }
-function getSelectUbah(seletedObject,id)
+function getSelectUbah(seletedObject,id,name)
 {
-    let value = seletedObject.value
-    window.location.href=`${window.BASE_URL}/admin/pengajuan/ubah_progress_status/${value}/${id}`;
+    if (name == 'admin') {
+        let value = seletedObject.value
+        window.location.href=`${window.BASE_URL}/admin/pengajuan/ubah_progress_status/${value}/${id}`;
+    }
 }
 
-function getSelectUbahKaryawan(seletedObject,id)
+function getSelectUbahKaryawan(seletedObject,id,name)
 {
-    let value = seletedObject.value
-    window.location.href=`${window.BASE_URL}/karyawan/pengajuan/ubah_progress_status/${value}/${id}`;
+    if (name == 'karyawan') {
+        let value = seletedObject.value
+        window.location.href=`${window.BASE_URL}/karyawan/pengajuan/ubah_progress_status/${value}/${id}`;
+    }
 }
 
 for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) {

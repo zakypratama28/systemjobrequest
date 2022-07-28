@@ -2,6 +2,8 @@
 
 namespace App\Libraries;
 
+use App\Models\UserModel;
+
 class Email
 {
     public static function send($from,$to,$subject,$message)
@@ -17,9 +19,12 @@ class Email
             'newline' => "\r\n"
         );
         $html_view = view('email',$message);
+
+        // $user = new UserModel();
+        // $pic = $user->getUser($message['penanggung_jawab'],'no_employee');
         $email = \Config\Services::email();
         $email->initialize($config);
-        $email->setFrom($from, 'Your Name');
+        $email->setFrom($from, $message['ses_nama']);
         $email->setTo($to);
 
         $email->setSubject($subject);
