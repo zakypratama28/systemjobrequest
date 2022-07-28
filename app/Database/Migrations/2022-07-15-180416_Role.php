@@ -12,7 +12,8 @@ class Role extends Migration
             'role_id'          => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'auto_increment' => true
+                'auto_increment' => true,
+                'unsigned'       => true
             ],
             'nama_role'       => [
                 'type'           => 'VARCHAR',
@@ -20,13 +21,13 @@ class Role extends Migration
             ],
 
         ]);
- 
+
         // Membuat primary key
         $this->forge->addKey('role_id', TRUE);
- 
+
         $this->forge->createTable('role', TRUE);
     }
- 
+
     public function down()
     {
         $this->forge->dropTable('role');

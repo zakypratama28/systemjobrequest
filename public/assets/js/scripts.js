@@ -130,4 +130,8 @@ function goneNotif(p,id)
         },
    });
 }
-setInterval(fetchNotif,5000)
+
+let p = window.location.pathname.split('/')
+// if (p[3] != 'cari') {
+    setInterval(fetchNotif,5000)    
+// }

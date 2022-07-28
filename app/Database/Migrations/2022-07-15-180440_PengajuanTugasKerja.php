@@ -17,6 +17,7 @@ class PengajuanTugasKerja extends Migration
             'no_employee'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
+                // 'unsigned'       => true
             ],
             'nama_pengajuan' => [
                 'type' => 'VARCHAR',
@@ -67,13 +68,13 @@ class PengajuanTugasKerja extends Migration
                 'constraint' => 1
             ]
         ]);
- 
+
         // Membuat primary key
         $this->forge->addKey('id_pengajuan', TRUE);
-        // $this->forge->addForeignKey('no_employee', 'user', 'no_employee'); 
+        $this->forge->addForeignKey('no_employee', 'user', 'no_employee');
         $this->forge->createTable('pengajuan_tugas_kerja', TRUE);
     }
- 
+
     public function down()
     {
         $this->forge->dropTable('pengajuan_tugas_kerja');

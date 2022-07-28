@@ -12,7 +12,8 @@ class User extends Migration
             'no_employee'        => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 50,
-                'auto_increment' => true
+                'auto_increment' => true,
+                // 'unsigned'       => true
             ],
             'role_id'       => [
                 'type'           => 'INT',
@@ -52,13 +53,13 @@ class User extends Migration
                 'constraint' => 10,
             ],
         ]);
- 
+
         // Membuat primary key
         $this->forge->addKey('no_employee', TRUE);
-        // $this->forge->addForeignKey('role_id', 'role', 'role_id'); 
+        $this->forge->addForeignKey('role_id', 'role', 'role_id');
         $this->forge->createTable('user', TRUE);
     }
- 
+
     public function down()
     {
         $this->forge->dropTable('user');

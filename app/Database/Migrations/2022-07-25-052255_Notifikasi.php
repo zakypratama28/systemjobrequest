@@ -23,7 +23,7 @@ class Notifikasi extends Migration
             'no_employee' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
-                'default'        => NULL
+                // 'unsigned'       => true,
             ],
             'tanggal'  => [
                 'type' => 'DATE',
@@ -34,13 +34,13 @@ class Notifikasi extends Migration
                 'default' => 'belum'
             ]
         ]);
- 
+
         // Membuat primary key
         $this->forge->addKey('id_notifikasi', TRUE);
-        // $this->forge->addForeignKey('no_employee', 'user', 'no_employee'); 
+        $this->forge->addForeignKey('no_employee', 'user', 'no_employee');
         $this->forge->createTable('notifikasi', TRUE);
     }
- 
+
     public function down()
     {
         $this->forge->dropTable('notifikasi');

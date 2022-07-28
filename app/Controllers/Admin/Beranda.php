@@ -24,12 +24,12 @@ class Beranda extends BaseController
         $lokasi = $this->request->getGet('cari_lokasi');
         $pic = $this->request->getGet('cari_pic');
         $status = $this->request->getGet('cari_status');
-        $data['list'] = $this->pengajuanTugas->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,$pic,$status);
-        $data['pengajuan_baru'] = $this->pengajuanTugas->countAllOrRow('pengajuan_baru','status');
-        $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan','status');
-        $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai','status');
+        $data['list'] = $this->pengajuanTugas->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, $pic, $status);
+        $data['pengajuan_baru'] = $this->pengajuanTugas->countAllOrRow('pengajuan_baru', 'status');
+        $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan', 'status');
+        $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai', 'status');
         $data['user'] = $this->user->getUserJoinRole();
-        return view('admin/beranda',$data);
+        return view('admin/beranda', $data);
     }
 
     public function cari()
@@ -37,8 +37,9 @@ class Beranda extends BaseController
         $data['dari'] = $this->request->getGet('dari_tanggal');
         $data['pilih_status'] = $this->request->getGet('pilih_status');
         $data['sampai'] = $this->request->getGet('sampai_tanggal');
-        $data['list'] = $this->pengajuanTugas->cari($data['dari'],$data['pilih_status'],$data['sampai']);
-        return view('admin/cari',$data);
+        $data['list'] = $this->pengajuanTugas->cari($data['dari'], $data['pilih_status'], $data['sampai']);
+        // var_dump($data);
+        return view('admin/cari', $data);
     }
 
     // public function cari()
@@ -58,7 +59,7 @@ class Beranda extends BaseController
     //     } else if($pilih_status == 'selesai') {
     //         $status = 'Selesai';
     //     }
-        
+
     //     $model = new Pdf();
     //     $pdf = $model->setPdf();
     //     $pdf->AddPage();
@@ -80,20 +81,20 @@ class Beranda extends BaseController
     //     $pdf->SetFont('Arial','',12);
     //     $pdf->Cell(70,7,$status,1,1,'C');
     //     $pdf->SetFont('Arial','B',12);
-	// 	$pdf->Cell(10,6,'No',1,0,'C');
-	// 	$pdf->Cell(40,6,'Nama',1,0,'L');
-	// 	$pdf->Cell(40,6,'Aktivitas',1,0,'C');
-	// 	$pdf->Cell(30,6,'Deskripsi',1,0,'C');
-	// 	$pdf->Cell(30,6,'Lokasi',1,0,'C');
-	// 	$pdf->Cell(30,6,'PIC',1,0,'C');
-	// 	$pdf->Cell(40,6,'Tgl Pengajuan',1,0,'C');
-	// 	$pdf->Cell(40,6,'Rencana Selesai',1,0,'C');
-	// 	$pdf->Cell(40,6,'Actual Selesai',1,0,'C');
-	// 	$pdf->Cell(40,6,'Photo',1,0,'C');
-	// 	$pdf->Cell(40,6,'Status',1,1,'C');
+    // 	$pdf->Cell(10,6,'No',1,0,'C');
+    // 	$pdf->Cell(40,6,'Nama',1,0,'L');
+    // 	$pdf->Cell(40,6,'Aktivitas',1,0,'C');
+    // 	$pdf->Cell(30,6,'Deskripsi',1,0,'C');
+    // 	$pdf->Cell(30,6,'Lokasi',1,0,'C');
+    // 	$pdf->Cell(30,6,'PIC',1,0,'C');
+    // 	$pdf->Cell(40,6,'Tgl Pengajuan',1,0,'C');
+    // 	$pdf->Cell(40,6,'Rencana Selesai',1,0,'C');
+    // 	$pdf->Cell(40,6,'Actual Selesai',1,0,'C');
+    // 	$pdf->Cell(40,6,'Photo',1,0,'C');
+    // 	$pdf->Cell(40,6,'Status',1,1,'C');
 
-	// 	$pdf->SetFont('Arial','',12);
-	// 	$no=0;
+    // 	$pdf->SetFont('Arial','',12);
+    // 	$no=0;
     //     if (count($list) > 0) {
     //         $list_image = [];
     //         foreach ($list as $data){
