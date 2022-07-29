@@ -115,6 +115,7 @@ class PengajuanTugasKerjaModel extends Model
     public function getUserPengajuan($id)
     {
         $builder = $this->db->table($this->table);
+        $builder->select('*, pengajuan_tugas_kerja.status as status_tugas');
         $builder->join('user', 'user.no_employee = ' . $this->table . '.no_employee');
         $builder->where($this->table . '.id_pengajuan', $id);
         return $builder->get()->getRowArray();
