@@ -130,13 +130,27 @@ $role = new RLModel();
                             <td><?= $k['deskripsi']; ?></td>
                             <td><?= $k['lokasi']; ?></td>
                             <td><?= $k['penanggung_jawab']; ?></td>
-                            <td><?= custom_date_tgl($k['tgl_pengajuan']); ?></td>
-                            <td><?= custom_date_tgl($k['tgl_rencana_selesai']); ?></td>
-                            <td><?php if ($k['tgl_actual_selesai'] == NULL) {
+                            <td>
+                                <?php if ($k['tgl_pengajuan'] == NULL) {
+                                    echo '-';
+                                } else {
+                                    echo custom_date_tgl($k['tgl_pengajuan']);
+                                } ?>
+                            </td>
+                            <td>
+                                <?php if ($k['tgl_rencana_selesai'] == NULL) {
+                                    echo '-';
+                                } else {
+                                    echo custom_date_tgl($k['tgl_rencana_selesai']);
+                                } ?>
+                            </td>
+                            <td>
+                                <?php if ($k['tgl_actual_selesai'] == NULL) {
                                     echo '-';
                                 } else {
                                     echo custom_date_tgl($k['tgl_actual_selesai']);
-                                } ?></td>
+                                } ?>
+                            </td>
                             <td>
                                 <a href="">
                                     <img src="<?= base_url() . '/uploads/' . $k['foto']; ?>" width="100" height="100">
@@ -145,13 +159,13 @@ $role = new RLModel();
                             <td <?php $status = 'text-success'; ?> <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?> <?php $status = 'text-danger'; ?> <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?> <?php $status = 'text-warning'; ?> <?php } ?> class="<?= $status; ?>">
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
                                         <option value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
                                         <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>

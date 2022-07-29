@@ -59,6 +59,12 @@
 .rating.active > input:checked ~ label:hover ~ label {
     color: #f2e93d;
 } 
+
+@media only screen and (max-width: 500px) {
+    .rating > label:before { 
+        font-size: 30px;
+    }
+}
 </style>
                 <div class="container-fluid">
 
@@ -66,7 +72,7 @@
                     <div class="row d-flex flex-column justify-content-center align-items-center">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-8 col-md-12 mt-5">
+                        <div class="col-xl-8 col-md-12 mt-5 col-sm-12">
                           <div class="card">
                             <div class="card-body">
                             <h1 class="text-center">Umpan Balik Pekerjaan</h1> 
@@ -92,7 +98,7 @@
                                         <td>:</td>
                                         <td><?= $pengajuan['lokasi'];?></td>
                                         <td rowspan="6">
-                                            <img class="img-fluid" src="<?= base_url().'/uploads/'.$pengajuan['foto'];?>">
+                                            <img class="img-fluid" style="height:300px;width:300px;" src="<?= base_url().'/uploads/'.$pengajuan['foto'];?>">
                                         <td>
                                     </tr>
                                     <tr>
@@ -103,22 +109,40 @@
                                     <tr>
                                         <td>Tanggal Pengajuan</td>
                                         <td>:</td>
-                                        <td><?= custom_date_tgl($pengajuan['tgl_pengajuan']);?></td>
+                                        <td>
+                                            <?php if ($pengajuan['tgl_pengajuan'] == NULL) {
+                                                echo '-';
+                                            } else {
+                                                echo custom_date_tgl($pengajuan['tgl_pengajuan']);
+                                            } ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal Rencana Selesai</td>
                                         <td>:</td>
-                                        <td><?= custom_date_tgl($pengajuan['tgl_rencana_selesai']);?></td>
+                                        <td>
+                                            <?php if ($pengajuan['tgl_rencana_selesai'] == NULL) {
+                                                echo '-';
+                                            } else {
+                                                echo custom_date_tgl($pengajuan['tgl_rencana_selesai']);
+                                            } ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal Actual Selesai</td>
                                         <td>:</td>
-                                        <td><?= custom_date_tgl($pengajuan['tgl_actual_selesai']);?></td>
+                                        <td>
+                                            <?php if ($pengajuan['tgl_actual_selesai'] == NULL) {
+                                                echo '-';
+                                            } else {
+                                                echo custom_date_tgl($pengajuan['tgl_actual_selesai']);
+                                            } ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>:</td>
-                                        <td><?= $pengajuan['status'];?></td>
+                                        <td><?= $pengajuan['status_tugas'];?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">Beri Umpan Balik</td>

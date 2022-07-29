@@ -78,9 +78,25 @@
             <td><?= $k['deskripsi'];?></td>
             <td><?= $k['lokasi'];?></td>
             <td><?= $k['nama'];?></td>
-            <td><?=  custom_date_tgl($k['tgl_pengajuan']);?></td>
-            <td><?= custom_date_tgl($k['tgl_rencana_selesai']);?></td>
-            <td><?= custom_date_tgl($k['tgl_actual_selesai']);?></td>
+            <td>
+                <?php if ($k['tgl_pengajuan'] == NULL) {
+                    echo '-';
+                } else {
+                    echo custom_date_tgl($k['tgl_pengajuan']);
+                } ?>
+            </td>
+            <td>
+                <?php if ($k['tgl_rencana_selesai'] == NULL) {
+                    echo '-';
+                } else {
+                    echo custom_date_tgl($k['tgl_rencana_selesai']);
+                } ?>
+            <td>
+                <?php if ($k['tgl_actual_selesai'] == NULL) {
+                    echo '-';
+                } else {
+                    echo custom_date_tgl($k['tgl_actual_selesai']);
+                } ?>
             <td>
                 <img src="<?= $base64; ?>" width="100" height="100">
             </td>
