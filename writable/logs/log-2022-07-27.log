@@ -1,0 +1,64 @@
+CRITICAL - 2022-07-27 01:13:14 --> Undefined variable: role
+in APPPATH/Views/admin/beranda.php on line 426.
+ 1 APPPATH/Views/admin/beranda.php(426): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/Beranda.php(30): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-27 01:27:20 --> Undefined variable: dari
+in APPPATH/Views/admin/cari.php on line 35.
+ 1 APPPATH/Views/admin/cari.php(35): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/cari.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/Beranda.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-27 02:41:25 --> Email: sendWithSmtp throwed stream_socket_enable_crypto(): SSL/TLS already set-up for this stream
+ERROR - 2022-07-27 02:52:03 --> Email: sendWithSmtp throwed fwrite(): send of 10 bytes failed with errno=32 Broken pipe
+ERROR - 2022-07-27 02:56:32 --> Email: sendWithSmtp throwed fwrite(): send of 10 bytes failed with errno=32 Broken pipe
+ERROR - 2022-07-27 02:58:41 --> Email: sendWithSmtp throwed fwrite(): send of 10 bytes failed with errno=32 Broken pipe
+CRITICAL - 2022-07-27 23:37:59 --> Undefined index: role
+in APPPATH/Views/karyawan/beranda.php on line 429.
+ 1 APPPATH/Views/karyawan/beranda.php(429): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/karyawan/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Karyawan/Beranda.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Karyawan\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-27 23:45:10 --> Undefined index: ubah_tgl_rencana_selesai
+in APPPATH/Views/karyawan/beranda.php on line 289.
+ 1 APPPATH/Views/karyawan/beranda.php(289): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/karyawan/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Karyawan/Beranda.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Karyawan\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-27 23:45:46 --> Undefined index: ubah_tgl_rencana_selesai
+in APPPATH/Views/karyawan/beranda.php on line 289.
+ 1 APPPATH/Views/karyawan/beranda.php(289): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/karyawan/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Karyawan/Beranda.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Karyawan\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')

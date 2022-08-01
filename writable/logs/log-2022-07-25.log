@@ -1,0 +1,19 @@
+CRITICAL - 2022-07-25 03:08:12 --> Class 'App\Controllers\Karyawan\BaseController' not found
+in APPPATH/Controllers/Karyawan/Beranda.php on line 7.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(284): include_once()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 5 [internal function]: spl_autoload_call()
+ 6 SYSTEMPATH/CodeIgniter.php(846): class_exists()
+ 7 SYSTEMPATH/CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-25 03:25:49 --> Class 'App\Controllers\Karyawan\Notifikasi' not found
+in APPPATH/Controllers/Karyawan/Pengajuan.php on line 15.
+ 1 SYSTEMPATH/CodeIgniter.php(858): App\Controllers\Karyawan\Pengajuan->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')

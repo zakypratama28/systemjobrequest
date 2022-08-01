@@ -103,7 +103,7 @@ $role = new RLModel();
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
-                    <tr class="bg-warning">
+                    <tr class="bg-info">
                         <th>No</th>
                         <th>Nama</th>
                         <th>Aktivitas</th>
@@ -113,7 +113,7 @@ $role = new RLModel();
                         <th>Tgl Pengajuan</th>
                         <th>Rencana Selesai</th>
                         <th>Actual Selesai</th>
-                        <th>Photo</th>
+                        <th>Foto</th>
                         <th>Status</th>
                         <th scope="col">Edit/Delete</th>
                     </tr>
@@ -136,6 +136,7 @@ $role = new RLModel();
                                 } else {
                                     echo custom_date_tgl($k['tgl_pengajuan']);
                                 } ?>
+
                             </td>
                             <td>
                                 <?php if ($k['tgl_rencana_selesai'] == NULL) {
@@ -159,14 +160,14 @@ $role = new RLModel();
                             <td <?php $status = 'text-success'; ?> <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?> <?php $status = 'text-danger'; ?> <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?> <?php $status = 'text-warning'; ?> <?php } ?> class="<?= $status; ?>">
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
-                                        <option value="" disabled selected><?= $k['status_tugas']; ?></option>
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                        <option value="pengajuan_baru" selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>)">
-                                        <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                        <option style="color:yellow;" value="dalam_pengerjaan" selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else { ?>
@@ -194,8 +195,8 @@ $role = new RLModel();
                                         <form method="post" action="<?= base_url('/karyawan/pengajuan/hapus/' . $k['id_pengajuan']); ?>" enctype="multipart/form-data">
                                             <div class="d-flex flex-column align-items-center justify-center">
                                                 <img src="<?= base_url() . '/assets/img/cancel.png'; ?>" alt="">
-                                                <h2>Apakah kamu Yakin ?</h2>
-                                                <p>Apakah Anda Ingin menghapus data pekerjaan ini</p>
+                                                <h2>Apakah kamu Yakin.</h2>
+                                                <p>Akan menghapus data pekerjaan ini?</p>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
@@ -262,8 +263,7 @@ $role = new RLModel();
                                                             <label class="form-label">PIC:</label>
                                                         </div>
                                                         <div class="col-9">
-                                                            <!-- <input type="text" required name="ubah_pic" value="<? php // $k['penanggung_jawab'];
-                                                                                                                    ?>" class="form-control" placeholder="Tulis PIC"> -->
+
                                                             <select name="ubah_pic" class="form-control">
                                                                 <option value="">--Pilih PIC--</option>
                                                                 <?php foreach ($user as $d) { ?>
@@ -302,15 +302,20 @@ $role = new RLModel();
                                                         <div class="col-3">
                                                             <label class="form-label">Tgl Actual Selesai:</label>
                                                         </div>
-                                                        <div class="col-9">
-                                                            <input type="date" value="<?= $k['tgl_actual_selesai']; ?>" required name="ubah_tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                                        <div class="col-9 d-flex flex-column">
+                                                            <div class="form-group mt-1">
+                                                                <button type="button" id="toggleDisabledKaryawan<?= $no;?>" class="btn btn-sm btn-primary">Toggle Disabled Or Sabled</button>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input disabled id="ubahActualSelesaiKaryawan<?= $no;?>" type="date" value="<?= $k['tgl_actual_selesai']; ?>" required name="ubah_tgl_actual_selesai" class="form-control" placeholder="Tulis Tanggal Actual Selesai">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 col-12">
                                                     <div class="d-flex justify-between row">
                                                         <div class="col-3">
-                                                            <label for="formFile" class="form-label">Photo : </label>
+                                                            <label for="formFile" class="form-label">Foto : </label>
                                                         </div>
                                                         <div class="col-9">
                                                             <input class="form-control" type="file" id="formFile" name="ubah_photo">
@@ -326,12 +331,14 @@ $role = new RLModel();
                                                             <select name="ubah_status" class="form-control" id="ubahSelect" required>
                                                                 <!-- <option value="">--Pilih Status--</option> -->
                                                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                                                    <option value="pengajuan_baru" disabled selected>Pengajuan Baru</option>
+                                                                    <option value="pengajuan_baru" selected>Pengajuan Baru</option>
                                                                     <option value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                                                     <option value="selesai">Selesai</option>
                                                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                                                    <option value="dalam_pengerjaan" disabled selected>Dalam Pengerjaan</option>
+                                                                    <option value="dalam_pengerjaan" selected>Dalam Pengerjaan</option>
                                                                     <option value="selesai">Selesai</option>
+                                                                <?php } else { ?>
+                                                                    <option value="selesai" selected>Selesai</option>
                                                                 <?php } ?>
                                                             </select>
                                                         </div>
@@ -625,7 +632,7 @@ $role = new RLModel();
                         <div class="mb-3 col-12">
                             <div class="d-flex justify-between row">
                                 <div class="col-3">
-                                    <label for="formFile" class="form-label">Photo : </label>
+                                    <label for="formFile" class="form-label">Foto : </label>
                                 </div>
                                 <div class="col-9">
                                     <input class="form-control" type="file" id="formFile" name="photo">

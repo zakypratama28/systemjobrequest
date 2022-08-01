@@ -6,7 +6,7 @@ $user = new UserModel();
 $pic = $user->getUser($penanggung_jawab, 'no_employee');
 ?>
 <p>Hi, <?= $pic['nama']; ?></p>
-<p>Kamu mendapat permintaan pekerjaan baru.</p>
+<p>Anda mendapat permintaan pekerjaan baru.</p>
 
 <table>
     <tr>

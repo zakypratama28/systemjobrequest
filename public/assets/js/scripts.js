@@ -25,16 +25,17 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-let formNambahAdmin = document.getElementById('formNambah');
+let formNambahAdmin = document.getElementById('formNambah'); 
+// let=data dapat diubah2. mengubah2 data dari form tambah data si admin, dimana terletak di form nambah?
 function nambahSwalForm(){
     Swal.fire({
-        title: 'Apakah Anda Yakin',
-        text: "Anda Yakin Menambahkan Ini ?",
+        title: 'Apakah Anda Yakin.',
+        text: "Akan Menambahkan Pekerjaan baru?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#87B4DE;',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'OK!'
+        confirmButtonText: 'YA!'
     }).then((result) => {
         if (result.isConfirmed) {
             formNambahAdmin.submit()
@@ -43,31 +44,36 @@ function nambahSwalForm(){
 }
 
 let formNambahKaryawan = document.getElementById('formNambahKaryawan');
+// let=data dapat diubah2. mengubah2 data dari form tambah data si admin, dimana terletak di form nambah?
 function nambahSwalKaryawanForm(){
     Swal.fire({
         title: 'Apakah Anda Yakin',
-        text: "Anda Yakin Menambahkan Ini ?",
+        text: "Akan Menambahkan Pekerjaan Baru?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#87B4DE;',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'OK!'
+        confirmButtonText: 'YA!'
     }).then((result) => {
         if (result.isConfirmed) {
             formNambahKaryawan.submit()
         }
     })
 }
-function getSelectUbah(seletedObject,id)
+function getSelectUbah(seletedObject,id,name)
 {
-    let value = seletedObject.value
-    window.location.href=`${window.BASE_URL}/admin/pengajuan/ubah_progress_status/${value}/${id}`;
+    if (name == 'admin') {
+        let value = seletedObject.value
+        window.location.href=`${window.BASE_URL}/admin/pengajuan/ubah_progress_status/${value}/${id}`;
+    }
 }
 
-function getSelectUbahKaryawan(seletedObject,id)
+function getSelectUbahKaryawan(seletedObject,id,name)
 {
-    let value = seletedObject.value
-    window.location.href=`${window.BASE_URL}/karyawan/pengajuan/ubah_progress_status/${value}/${id}`;
+    if (name == 'karyawan') {
+        let value = seletedObject.value
+        window.location.href=`${window.BASE_URL}/karyawan/pengajuan/ubah_progress_status/${value}/${id}`;
+    }
 }
 
 for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) {
@@ -80,9 +86,10 @@ for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) {
 
 function fetchNotif()
 {
+    // untuk mengambil data dari php ke json, dan menampilkan notifikasi pada sistem
     // console.log('a');
-    $.getJSON(`${window.BASE_URL}/baca-notifikasi`, function(result){
-        console.log(result);
+    $.getJSON(`${window.BASE_URL}/baca-notifikasi`, function(result){ // menampilkan data dari PHP ke json lalu di tampilkan ke notifikasi
+        // console.log(result);
         $('#countIcon').html(result[0]);
         $('#countNotif').html(result[0]);
         if (result[1].list.length > 0) {
@@ -113,6 +120,7 @@ function fetchNotif()
 
 function goneNotif(p,id)
 {
+    // ketika mouse diarahkan ke notif yang sedang muncul maka ada perubahan di secara asinkronus dan mengeksekusi fungsi. sehingga langsung menghilang
   console.log('notif')
    $.ajax({
         url: window.BASE_URL + '/sudah-baca-notifikasi/'+ id,
@@ -129,5 +137,39 @@ function goneNotif(p,id)
 
 let p = window.location.pathname.split('/')
 // if (p[3] != 'cari') {
+    //menampilkan notifikasi ketika ada perubahan data selama 5 detik
     setInterval(fetchNotif,5000)    
 // }
+// console.log(window.adminL)
+let radioDisabled = false;
+if (window.adminL > 0) {
+    for (let index = 2; index < window.adminL + 2; index++) {
+        $('#toggleDisabled'+index).click(function() {
+            $('#ubahActualSelesai'+index).each(function(){
+                var $this = $(this);
+                if ($this.prop('disabled')) {
+                    $this.prop('disabled', false)
+                } else {
+                    $this.prop('disabled', true)
+                }
+            })
+        })
+    }
+}
+
+
+let radioDisabledKaryawan = false;
+if (window.karyawanP > 0) {
+for (let index = 2; index < window.karyawanP + 2; index++) {
+    $('#toggleDisabledKaryawan'+index).click(function() {
+        $('#ubahActualSelesaiKaryawan'+index).each(function(){
+            var $this = $(this);
+            if ($this.prop('disabled')) {
+                $this.prop('disabled', false)
+            } else {
+                $this.prop('disabled', true)
+            }
+        })
+    })
+}
+}

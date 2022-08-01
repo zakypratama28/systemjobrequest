@@ -11,4 +11,3 @@ class Pdf {
         return new \FPDF('L', 'mm',[450,250]);
     }
 }
-?>

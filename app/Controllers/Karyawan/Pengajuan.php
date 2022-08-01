@@ -25,7 +25,9 @@ class Pengajuan extends BaseController
         $upload = $this->request->getFile('photo');
         $fileNameUpload = $upload->getRandomName();
         if ($upload->isValid() && !$upload->hasMoved()) {
-            $upload->move(ROOTPATH.'public/uploads/', $fileNameUpload);
+            // upload valid jika mau upload file
+            // upload bergerak atau berpindah maka hasilnya false
+            $upload->move(ROOTPATH . 'public/uploads/', $fileNameUpload);
         }
         $data = [
             'no_employee' => session('no_employee'),
@@ -44,24 +46,26 @@ class Pengajuan extends BaseController
         $pic = $this->request->getVar('pic');
         $data['ses_nama'] = session('nama');
         if ($this->request->getVar('pic') == session('no_employee')) {
-            $user = $this->userModel->getUser(session('no_employee'),'no_employee');
-            SendEmail::send($user['email'],$user['email'],'Reminder Job Request',$data);
-            $this->notifikasiController->sendMessage('Data Pekerjaan dari Anda '.$this->request->getVar('status'),session('no_employee'));
+            // jika pic nya diri sendiri maka kirim email diri sendiri dan notifikasi diri sendiri
+            $user = $this->userModel->getUser(session('no_employee'), 'no_employee');
+            SendEmail::send($user['email'], $user['email'], 'Reminder Job Request', $data);
+            $this->notifikasiController->sendMessage('Anda telah berhasil menambahkan ' . $this->request->getVar('status'), session('no_employee'));
             $userAn = $this->userModel->getUserJoinRole();
             foreach ($userAn as $k) {
                 if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
-                    $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' dari pengajuan baru',$k['no_employee']);
+                    $this->notifikasiController->sendMessage('' . session('nama') . ' telah menambahkan pekerjaan berupa pengajuan baru', $k['no_employee']);
                 }
             }
         } else {
-            $userKaryawan = $this->userModel->getUser(session('no_employee'),'no_employee');
-            $userAdmin = $this->userModel->getUser($pic,'no_employee');
-            SendEmail::send($userKaryawan['email'],$userAdmin['email'],'Reminder Job Request',$data);
-            $this->notifikasiController->sendMessage('Karyawan telah mengajukan pekerjaan ke Leader',$userAdmin['no_employee']);
+            //sebaliknya pic bukan diri sendiri maka kirim email untuk orang pic dan notifikasi diri sendiri dan picnya
+            $userKaryawan = $this->userModel->getUser(session('no_employee'), 'no_employee');
+            $userAdmin = $this->userModel->getUser($pic, 'no_employee');
+            SendEmail::send($userKaryawan['email'], $userAdmin['email'], 'Reminder Job Request', $data);
+            $this->notifikasiController->sendMessage('Anda telah mengajukan pekerjaan', $userAdmin['no_employee']);
         }
-        // SendEmail::send('adam@gmail.com','kevin@gmail.com','Reminder Job Request',$data);
+        // SendEmail::send('zaky@gmail.com','kevin@gmail.com','Reminder Job Request',$data);
         // $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Pengajuan Baru');
-        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+        session()->setFlashdata('success_text', "Anda berhasil menambahkan pekerjaan baru");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));
     }
@@ -81,18 +85,21 @@ class Pengajuan extends BaseController
         $upload = $this->request->getFile('ubah_photo');
         $fileNameUpload = $upload->getRandomName();
         if ($upload->isValid() && !$upload->hasMoved()) {
-            $upload->move(ROOTPATH.'public/uploads/', $fileNameUpload);
+            // upload valid jika mau upload file
+            // upload bergerak atau berpindah maka hasilnya false
+            $upload->move(ROOTPATH . 'public/uploads/', $fileNameUpload);
             $data['foto'] = $fileNameUpload;
         }
         $userAdmin = $this->userModel->getUserJoinRole();
+        //kirim notifikasi untuk semua admin
         foreach ($userAdmin as $k) {
             if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
-                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah diubah',$k['no_employee']);
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari  ' . session('nama') . ' Telah diubah', $k['no_employee']);
             }
         }
-        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan diubah ',session('no_employee'));
-        $this->pengajuanTugasKerjaModel->updatePengajuan($data,$id);
-        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan ', session('no_employee'));
+        $this->pengajuanTugasKerjaModel->updatePengajuan($data, $id);
+        session()->setFlashdata('success_text', "Anda berhasil mengubah data pekerjaan");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));
     }
@@ -105,45 +112,49 @@ class Pengajuan extends BaseController
             return redirect()->to(base_url('/karyawan/beranda'));
         }
         $userAdmin = $this->userModel->getUserJoinRole();
-        foreach ($userAdmin as $k) {
+
+        // jadi cari berdasarkan role admin
+        // lalu kirim notifikasi untuk semua admin 
+        foreach ($userAdmin as $k) { //foreach? as @k??
             if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
-                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah dihapus',$k['no_employee']);
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari  ' . session('nama') . ' Telah dihapus', $k['no_employee']);
             }
         }
-        $this->notifikasiController->sendMessage('Anda telah mengubah pekerjaan menjadi status dihapus ',session('no_employee'));
+        $this->notifikasiController->sendMessage('Anda telah menghapus pekerjaan ', session('no_employee'));
         $this->pengajuanTugasKerjaModel->deletePengajuan($id);
-        @unlink(ROOTPATH.'public/uploads/'.$data['foto']);
-        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+        @unlink(ROOTPATH . 'public/uploads/' . $model['foto']);
+        session()->setFlashdata('success_text', "Anda berhasil menghapus data pekerjaan");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));
     }
 
-    public function ubah_progress_status($status,$id)
+    public function ubah_progress_status($status, $id)
     {
 
         $nama_pengajuan = $this->request->getGet('cari_nama');
-        $tgl_pengajuan = $this->request->getGet('cari_tgl_pengajuan');
-        $lokasi = $this->request->getGet('cari_lokasi');
-        $pic = $this->request->getGet('cari_pic');
-        $statusCari = $this->request->getGet('cari_status');
-        $list = $this->pengajuanTugasKerjaModel->listPengajuan($nama_pengajuan,$tgl_pengajuan,$lokasi,false,session('no_employee'),$statusCari);
+        $tgl_pengajuan = $this->request->getGet('cari_tgl_pengajuan'); // cari berdasarkan tanggal pengajuan
+        $lokasi = $this->request->getGet('cari_lokasi'); // cari berdasarkan lokasi terjadinya kerusakan
+        $pic = $this->request->getGet('cari_pic'); //cari berdasarkan PIC
+        $statusCari = $this->request->getGet('cari_status'); //cari berdasarkan status
+        $list = $this->pengajuanTugasKerjaModel->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, session('no_employee'), $statusCari);
         if (count($list) == 0) {
-            session()->setFlashdata('error_text', "Ada Kesalahan terjadi");
+            //jika data yang di table kosong maka terjadinya error
+            session()->setFlashdata('error_text', "Terjadi Kesalahan");
             session()->setFlashdata('error_title', "Error");
             return redirect()->to(base_url('/karyawan/beranda'));
         }
-        if($id == 'undefined'){
-           $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
+        if ($id == 'undefined') {
+            $this->pengajuanTugasKerjaModel->ubahProgresStatus($status, $id);
         }
-        $this->pengajuanTugasKerjaModel->ubahProgresStatus($status,$id);
+        $this->pengajuanTugasKerjaModel->ubahProgresStatus($status, $id);
         $userAdmin = $this->userModel->getUserJoinRole();
-        foreach ($userAdmin as $k) {
+        foreach ($userAdmin as $k) { // jika karyawan mengubah status maka seluruh admin mengetahui nya di notifikasi ada yang mengubah status di pekerjaan
             if ($k['nama_role'] == $this->roleModel::ROLE_ADMIN) {
-                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan '.session('nama').' Telah '.$status,$k['no_employee']);
+                $this->notifikasiController->sendMessage('Data Pekerjaan dari Karyawan ' . session('nama') . ' telah diubah menjadi' . $status, $k['no_employee']);
             }
         }
-        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan menjadi '.$status,session('no_employee'));
-        session()->setFlashdata('success_text', "Permintaan anda telah dikirim");
+        $this->notifikasiController->sendMessage('Anda telah mengubah status pekerjaan menjadi ' . $status, session('no_employee'));
+        session()->setFlashdata('success_text', "Anda berhasil mengubah status pekerjaan");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/karyawan/beranda'));
     }

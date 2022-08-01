@@ -8,7 +8,7 @@
 
           <!-- Earnings (Monthly) Card Example -->
           <div class="col-xl-6 col-md-12 mt-5">
-               <h1 class="text-center">Profile Saya</h1>
+               <h1 class="text-center">Profil Saya</h1>
                <div class="form-group">
                     <label class="form-label">EE. No</label>
                     <input class="form-control" type="text" value="<?= $user['no_employee']; ?>" readonly>

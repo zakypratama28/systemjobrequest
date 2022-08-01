@@ -5,10 +5,12 @@ namespace App\Libraries;
 use App\Models\UserModel;
 
 class Email
+// fitur triger ke google email
 {
-    public static function send($from,$to,$subject,$message)
+    public static function send($from, $to, $subject, $message)
+    // terkirim ke email yang dituju, menggunakan akun email.
     {
-        $config = Array(
+        $config = array(
             'protocol' => $_ENV['email.protocol'],
             'SMTPHost' => $_ENV['email.SMTPHost'],
             'SMTPPort' => $_ENV['email.SMTPPort'],
@@ -18,7 +20,7 @@ class Email
             'CRLF' => "\r\n",
             'newline' => "\r\n"
         );
-        $html_view = view('email',$message);
+        $html_view = view('email', $message);
 
         // $user = new UserModel();
         // $pic = $user->getUser($message['penanggung_jawab'],'no_employee');

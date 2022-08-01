@@ -17,7 +17,7 @@ class Beranda extends BaseController
         $this->user = new UserModel();
     }
 
-    public function index()
+    public function index() //halaman beranda
     {
         $nama_pengajuan = $this->request->getGet('cari_nama');
         $tgl_pengajuan = $this->request->getGet('cari_tgl_pengajuan');
@@ -25,14 +25,15 @@ class Beranda extends BaseController
         $pic = $this->request->getGet('cari_pic');
         $status = $this->request->getGet('cari_status');
         $data['list'] = $this->pengajuanTugas->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, $pic, $status);
+        // status pekerjaan
         $data['pengajuan_baru'] = $this->pengajuanTugas->countAllOrRow('pengajuan_baru', 'status');
-        $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan', 'status');
+        $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan', 'status'); //countallorrowmenghitung data yang ada ditabel
         $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai', 'status');
         $data['user'] = $this->user->getUserJoinRole();
         return view('admin/beranda', $data);
     }
 
-    public function cari()
+    public function cari() //window.print=mencetak pdf dengan memlilih rentang waktu dan status
     {
         $data['dari'] = $this->request->getGet('dari_tanggal');
         $data['pilih_status'] = $this->request->getGet('pilih_status');
@@ -42,6 +43,7 @@ class Beranda extends BaseController
         return view('admin/cari', $data);
     }
 
+    // FPDF tidak di paakai
     // public function cari()
     // {
     //     $dari = $this->request->getGet('dari_tanggal');

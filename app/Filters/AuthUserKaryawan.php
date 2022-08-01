@@ -28,11 +28,11 @@ class AuthUserKaryawan implements FilterInterface
     {
         $role = new RoleModel();
         if (!session('login')) {
-            session()->setFlashdata('error', 'Terlebih Dahulu Login');
+            session()->setFlashdata('error', 'Anda Harus Login Terlebih Dahulu!');
             return redirect()->to(base_url('/'));
         }
         if (session('nama_role') != $role::ROLE_KARYAWAN) {
-            session()->setFlashdata('error', 'Tidak Bisa Akses Halaman Karyawan');
+            session()->setFlashdata('error', 'Maaf, Tidak Bisa Akses Halaman Karyawan');
             return redirect()->to(base_url('/admin/beranda'));
         }
     }

@@ -7,10 +7,10 @@ use App\Models\UserModel;
 
 class Profile extends BaseController
 {
-    public function index()
+    public function index() // controler untuk menampilkan halaman role user karyawan
     {
         $user = new UserModel();
-        $data['user'] = $user->getUser(session('no_employee'),'no_employee');
-        return view('admin/profile',$data);
+        $data['user'] = $user->getUser(session('no_employee'), 'no_employee');
+        return view('admin/profile', $data);
     }
 }

@@ -38,28 +38,33 @@ $routes->set404Override();
 $routes->get('/', 'Auth::index');
 $routes->post('/', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
-$routes->group('admin', ['filter' => 'authuseradmin'],function($routes){
-    $routes->get('beranda','Admin\Beranda::index');
-    $routes->get('beranda/cari','Admin\Beranda::cari');
-    $routes->get('profile','Admin\Profile::index');
-    $routes->post('pengajuan/nambah','Admin\Pengajuan::nambah');
-    $routes->post('pengajuan/ubah/(:segment)','Admin\Pengajuan::ubah/$1');
-    $routes->post('pengajuan/hapus/(:segment)','Admin\Pengajuan::hapus/$1');
-    $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)','Admin\Pengajuan::ubah_progress_status/$1/$2');
-    $routes->get('pengajuan/umpan_balik/(:segment)','Admin\Pengajuan::umpan_balik/$1');
-    $routes->post('pengajuan/beri_umpan_balik/(:segment)','Admin\Pengajuan::beri_umpan_balik/$1');
+$routes->group('admin', ['filter' => 'authuseradmin'], function ($routes) {
+    $routes->get('beranda', 'Admin\Beranda::index');
+    $routes->get('beranda/cari', 'Admin\Beranda::cari');
+    $routes->get('profile', 'Admin\Profile::index');
+    $routes->post('pengajuan/nambah', 'Admin\Pengajuan::nambah');
+    $routes->post('pengajuan/ubah/(:segment)', 'Admin\Pengajuan::ubah/$1');
+    $routes->post('pengajuan/hapus/(:segment)', 'Admin\Pengajuan::hapus/$1');
+    // ubah status pekerjaan
+    $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)', 'Admin\Pengajuan::ubah_progress_status/$1/$2');
+    //admin menampilkan umpan balik
+    $routes->get('pengajuan/umpan_balik/(:segment)', 'Admin\Pengajuan::umpan_balik/$1');
+    // pesan yang ditampilkan admin ketika menambahkan umpan balik
+    $routes->post('pengajuan/beri_umpan_balik/(:segment)', 'Admin\Pengajuan::beri_umpan_balik/$1');
 });
-$routes->get('/baca-notifikasi','Notifikasi::fetchAll');
-$routes->get('/sudah-baca-notifikasi/(:segment)','Notifikasi::readAll/$1');
+// mengirimkan data notifikasi
+$routes->get('/baca-notifikasi', 'Notifikasi::fetchAll');
+// pesan yang ditampilkan
+$routes->get('/sudah-baca-notifikasi/(:segment)', 'Notifikasi::readAll/$1');
 
-$routes->group('karyawan', ['filter' => 'authuserkaryawan'],function($routes){
-    $routes->get('beranda','Karyawan\Beranda::index');
-    $routes->get('beranda/cari','Karyawan\Beranda::cari');
-    $routes->get('profile','Karyawan\Profile::index');
-    $routes->post('pengajuan/nambah','Karyawan\Pengajuan::nambah');
-    $routes->post('pengajuan/ubah/(:segment)','Karyawan\Pengajuan::ubah/$1');
-    $routes->post('pengajuan/hapus/(:segment)','Karyawan\Pengajuan::hapus/$1');
-    $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)','Karyawan\Pengajuan::ubah_progress_status/$1/$2');
+$routes->group('karyawan', ['filter' => 'authuserkaryawan'], function ($routes) {
+    $routes->get('beranda', 'Karyawan\Beranda::index');
+    $routes->get('beranda/cari', 'Karyawan\Beranda::cari');
+    $routes->get('profile', 'Karyawan\Profile::index');
+    $routes->post('pengajuan/nambah', 'Karyawan\Pengajuan::nambah');
+    $routes->post('pengajuan/ubah/(:segment)', 'Karyawan\Pengajuan::ubah/$1');
+    $routes->post('pengajuan/hapus/(:segment)', 'Karyawan\Pengajuan::hapus/$1');
+    $routes->get('pengajuan/ubah_progress_status/(:segment)/(:segment)', 'Karyawan\Pengajuan::ubah_progress_status/$1/$2');
     // $routes->get('pengajuan/umpan_balik/(:segment)','Admin\Pengajuan::umpan_balik/$1');
     // $routes->post('pengajuan/beri_umpan_balik/(:segment)','Admin\Pengajuan::beri_umpan_balik/$1');
 });

@@ -7,10 +7,11 @@ use App\Models\RoleModel;
 
 class Auth extends BaseController
 {
-    public function __construct(){
-       $this->userModel = new UserModel();
-       $this->roleModel = new RoleModel();
-        helper(['my_helper']);
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+        $this->roleModel = new RoleModel();
+        helper(['my_helper']); // sama memanggil function di file my_helper dan function itu berulang ulang di gunakan
     }
 
     public function index()
@@ -18,7 +19,8 @@ class Auth extends BaseController
         return view('auth/login');
     }
 
-    public function login(){
+    public function login()
+    {
         if (!$this->validate($this->userModel->validationAuthLogin())) {
             session()->setFlashdata('error', $this->validator->listErrors());
             // return redirect()->back()->withInput();
@@ -26,29 +28,36 @@ class Auth extends BaseController
         } else {
             $no_employee = $this->request->getVar('no_employee');
             $password = $this->request->getVar('password');
-            if ($this->userModel->countAllOrRow($no_employee,'no_employee') > 0){
-                $data = $this->userModel->getUserJoinRole($no_employee,'no_employee');
-                if (password_verify($password,$data['password'])){
+            if ($this->userModel->countAllOrRow($no_employee, 'no_employee') > 0) {
+                // mengecek apakah no_employee di table ada dan berjumlah berapa
+                $data = $this->userModel->getUserJoinRole($no_employee, 'no_employee');
+                // dan mengambil data dan di cocokkan isi data lalu munculkan data
+                if (password_verify($password, $data['password'])) {
+                    // password dari inputan dan password dari data table di cek keduanya apakah valid
+                    // kalau valid masukan di session data yang diperlukan apa saja
                     session()->set([
                         'no_employee' => $data['no_employee'],
                         'nama_role' => $data['nama_role'],
                         'nama' => $data['nama'],
                         'login' => TRUE
                     ]);
-                    session()->setFlashdata('success_text', "Selamat Datang ".$data['nama']);
+                    session()->setFlashdata('success_text', "Selamat Datang " . $data['nama']);
                     session()->setFlashdata('success_title', "Login Berhasil");
+                    // cek lagi apakah rolenya benar berdasarkan nama role lalu masuk secara langsung ke halaman masing masing
                     if ($data['nama_role'] == $this->roleModel::ROLE_ADMIN) {
                         return redirect()->to(base_url('/admin/beranda'));
-                    }else{
+                    } else {
                         return redirect()->to(base_url('/karyawan/beranda'));
                     }
-                }else{
-                    $result="No Employee dan Password tidak cocok";
+                } else {
+                    // terjadi error ketika datanya tidak sesuai
+                    $result = "No Employee dan Password anda tidak sesuai!";
                     session()->setFlashdata('error', $result);
                     return redirect()->to(base_url('/'));
                 }
-            }else{
-                $result="No Employee tidak terdaftar";
+            } else {
+                // terjadi error ketika No Employee tidak terdaftar
+                $result = "No Employee anda tidak terdaftar!";
                 session()->setFlashdata('error', $result);
                 // return redirect()->back()->withInput();
                 return redirect()->to(base_url('/'));
@@ -58,6 +67,7 @@ class Auth extends BaseController
 
     public function logout()
     {
+        // intinya menghapus session yang tersimpan di browser
         $session = session();
         $session->destroy();
         return redirect()->to(base_url('/'));

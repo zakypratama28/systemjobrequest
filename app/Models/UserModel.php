@@ -1,13 +1,13 @@
 <?php
- 
+
 namespace App\Models;
- 
+
 use CodeIgniter\Model;
- 
+
 class UserModel extends Model
 {
     protected $table = 'user';
-    protected $useTimestamps = false; 
+    protected $useTimestamps = false;
     protected $allowedFields = [
         'role_id',
         'password',
@@ -17,43 +17,43 @@ class UserModel extends Model
         'jabatan',
         'tahun_masuk',
         'tahun_habis_kontrak',
-        'status' ,
+        'status',
     ];
- 	protected $primaryKey = 'no_employee';
+    protected $primaryKey = 'no_employee';
 
-    public function getUser($id = false,$where = null)
+    public function getUser($id = false, $where = null)
     {
         if ($id && $where) {
             return $this->where($where, $id)
-                  ->first();
+                ->first();
         } else {
             return $this->findAll();
         }
     }
- 
+
     public function saveUser($data)
     {
         $builder = $this->db->table($this->table);
         return $builder->insert($data);
     }
 
-    public function updateUser($data,$id)
+    public function updateUser($data, $id)
     {
         $builder = $this->db->table($this->table);
-        return $builder->where($this->primaryKey,$id)->update($data);
+        return $builder->where($this->primaryKey, $id)->update($data);
     }
 
     public function deleteUser($id)
     {
         $builder = $this->db->table($this->table);
-        return $builder->where($this->primaryKey,$id)->delete();
+        return $builder->where($this->primaryKey, $id)->delete();
     }
 
     public function countAllOrRow($id = false, $where = null)
     {
         $builder = $this->db->table($this->table);
         if ($id && $where) {
-            $builder->where($where,$id);
+            $builder->where($where, $id);
         }
         return $builder->get()->getNumRows();
     }
@@ -75,26 +75,26 @@ class UserModel extends Model
             ],
         ];
     }
-
-    public function getUserJoinRole($id = false,$where = null)
-    {
+    //menampilkan semua atau satu data. 
+    public function getUserJoinRole($id = false, $where = null)
+    { //$builder variabel untuk mempermudah penulisan
         $builder = $this->db->table($this->table);
-        $builder->join('role','role.role_id=user.role_id');
+        $builder->join('role', 'role.role_id=user.role_id');
         if ($id && $where) {
-            $builder->where($where,$id);
+            $builder->where($where, $id);
             return $builder->get()->getRowArray();
-        } 
+        }
         return $builder->get()->getResultArray();
     }
-
-    public function getUserJoinPengajuanTugas($id = false,$where = null)
+    //function untuk mengjoinkan data
+    public function getUserJoinPengajuanTugas($id = false, $where = null)
     {
         $builder = $this->db->table($this->table);
-        $builder->join('pengajuan_tugas_kerja','pengajuan_tugas_kerja.no_employee=user.no_employee');
+        $builder->join('pengajuan_tugas_kerja', 'pengajuan_tugas_kerja.no_employee=user.no_employee');
         if ($id && $where) {
-            $builder->where($where,$id);
+            $builder->where($where, $id);
             return $builder->get()->getRowArray();
-        } 
+        }
         return $builder->get()->getResultArray();
     }
 }

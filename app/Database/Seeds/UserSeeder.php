@@ -39,18 +39,6 @@ class UserSeeder extends Seeder
             'status' => 'Kontrak'
         ]);
         $user->saveUser([
-            'no_employee' => '700142',
-            'role_id' => $roleAdmin['role_id'],
-            'password' => password_hash('admin', PASSWORD_DEFAULT),
-            'nama' => 'afif',
-            'email' => 'afif@gmail.com',
-            'department' => 'fasilitas',
-            'jabatan' => 'asisten supervisor',
-            'tahun_masuk' => 2022,
-            'tahun_habis_kontrak' => 2024,
-            'status' => 'Tetap'
-        ]);
-        $user->saveUser([
             'no_employee' => '700203',
             'role_id' => $roleKaryawan['role_id'],
             'password' => password_hash('karyawan', PASSWORD_DEFAULT),
@@ -73,18 +61,6 @@ class UserSeeder extends Seeder
             'tahun_masuk' => 2022,
             'tahun_habis_kontrak' => 2024,
             'status' => 'Tetap'
-        ]);
-        $user->saveUser([
-            'no_employee' => '700200',
-            'role_id' => $roleKaryawan['role_id'],
-            'password' => password_hash('karyawan', PASSWORD_DEFAULT),
-            'nama' => 'arman nasu',
-            'email' => 'arman@gmail.com',
-            'department' => 'fasilitas',
-            'jabatan' => 'operator',
-            'tahun_masuk' => 2022,
-            'tahun_habis_kontrak' => 2024,
-            'status' => 'Kontrak'
         ]);
     }
 }

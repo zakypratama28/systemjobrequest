@@ -1,0 +1,636 @@
+CRITICAL - 2022-07-26 07:00:14 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:14 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:14 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:15 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:16 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:16 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:18 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:00:19 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:01:42 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:02:26 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 07:02:37 --> Undefined property: App\Controllers\Notifikasi::$notifkasiModel
+in APPPATH/Controllers/Notifikasi.php on line 39.
+ 1 APPPATH/Controllers/Notifikasi.php(39): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->readAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:17:07 --> Too few arguments to function App\Models\PengajuanTugasKerjaModel::listPengajuan(), 3 passed in /home/arman/repository/systemjobrequest/app/Views/layouts/app_layout.php on line 127 and exactly 6 expected
+in APPPATH/Models/PengajuanTugasKerjaModel.php on line 56.
+ 1 APPPATH/Views/layouts/app_layout.php(127): App\Models\PengajuanTugasKerjaModel->listPengajuan()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/layouts/app_layout.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->render()
+ 5 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 6 APPPATH/Controllers/Karyawan/Beranda.php(31): view()
+ 7 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Karyawan\Beranda->index()
+ 8 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:52:51 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:52:56 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:01 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:06 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:11 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:16 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:21 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:26 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:31 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:36 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:41 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:46 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:51 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:53:56 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:01 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:06 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:11 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:16 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:21 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:26 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:31 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:36 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:41 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:46 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:51 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:54:56 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:01 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:06 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:11 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:16 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:21 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:26 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:31 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:36 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:41 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:46 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:51 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:55:59 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:56:04 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 08:56:09 --> Too few arguments to function App\Models\NotifikasiModel::all(), 0 passed in /home/arman/repository/systemjobrequest/app/Controllers/Notifikasi.php on line 18 and exactly 1 expected
+in APPPATH/Models/NotifikasiModel.php on line 36.
+ 1 APPPATH/Controllers/Notifikasi.php(18): App\Models\NotifikasiModel->all()
+ 2 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Notifikasi->fetchAll()
+ 3 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 09:12:07 --> Class 'App\Controllers\UserModel' not found
+in APPPATH/Controllers/Admin/Pengajuan.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(858): App\Controllers\Admin\Pengajuan->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:12:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:12:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:15:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:15:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 09:16:33 --> Undefined index: penanggung_jawab
+in APPPATH/Views/admin/beranda.php on line 264.
+ 1 APPPATH/Views/admin/beranda.php(264): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/Beranda.php(30): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+CRITICAL - 2022-07-26 09:16:54 --> Undefined index: penanggung_jawab
+in APPPATH/Views/admin/beranda.php on line 264.
+ 1 APPPATH/Views/admin/beranda.php(264): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/beranda.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1135): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin/Beranda.php(30): view()
+ 6 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Beranda->index()
+ 7 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:34:13 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:34:13 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:35:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:35:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:42:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:42:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:46:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:46:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:47:19 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:47:19 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')
+ERROR - 2022-07-26 09:47:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+CRITICAL - 2022-07-26 09:47:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':987654321:
+ LIMIT 1' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 292.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(292): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Models/UserModel.php(28): CodeIgniter\BaseModel->first()
+ 8 APPPATH/Controllers/Admin/Pengajuan.php(49): App\Models\UserModel->getUser()
+ 9 SYSTEMPATH/CodeIgniter.php(896): App\Controllers\Admin\Pengajuan->nambah()
+10 SYSTEMPATH/CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(43): require_once('FCPATH/index.php')

@@ -16,14 +16,14 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>/css/style.css">
-
-    <title>SJR</title>
+    <link rel="icon" href="<?= base_url() . '/assets/img/logo.ico'; ?>" type="image" sizes="16x16">
+    <title>System Job Request</title>
 </head>
 
 <body>
     <div class="bg-primary">
         <nav class="navbar-primary bgfooter">
-            <img src="<?= base_url();?>/assets/img/logo.png" alt="" width="13%" height="13%" class="">
+            <img src="<?= base_url(); ?>/assets/img/logo.png" alt="" width="13%" height="13%" class="">
         </nav>
         <div class="bg-light">
             <div class="content">
@@ -39,20 +39,20 @@
                                         <h3>LOGIN</h3>
                                         <p class="mb-4"></p>
                                     </div>
-                                    
-                                    <?php alert_custom('error','danger');?>
-                                    <form action="<?= base_url('/');?>" method="post">
+
+                                    <?php alert_custom('error', 'danger'); ?>
+                                    <form action="<?= base_url('/'); ?>" method="post">
                                         <div class="form-group first mb-4">
-                                            <label for="username">EE No</label>
+                                            <label for="username">EE No : </label>
                                             <input type="text" class="form-control" name="no_employee">
                                         </div>
                                         <div class="form-group last mb-4">
-                                            <label for="password">Password</label>
+                                            <label for="password">Password : </label>
                                             <input type="password" class="form-control" name="password">
 
                                         </div>
                                         <div class="d-grid gap-2">
-                                        <input type="submit" value="Login" class="btn btn-block btn-primary">
+                                            <input type="submit" value="Login" class="btn btn-block btn-primary">
                                         </div>
                                     </form>
                                 </div>

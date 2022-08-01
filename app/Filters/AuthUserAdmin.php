@@ -23,16 +23,17 @@ class AuthUserAdmin implements FilterInterface
      * @param array|null       $arguments
      *
      * @return mixed
+     * 
      */
     public function before(RequestInterface $request, $arguments = null)
     {
         $role = new RoleModel();
         if (!session('login')) {
-            session()->setFlashdata('error', 'Terlebih Dahulu Login');
+            session()->setFlashdata('error', 'Anda Harus Login Terlebih Dahulu!');
             return redirect()->to(base_url('/'));
         }
         if (session('nama_role') != $role::ROLE_ADMIN) {
-            session()->setFlashdata('error', 'Tidak Bisa Akses Halaman Admin');
+            session()->setFlashdata('error', 'Maaf, Tidak Bisa Akses Halaman Admin');
             return redirect()->to(base_url('/karyawan/beranda'));
         }
     }

@@ -1,0 +1,206 @@
+ERROR - 2022-07-28 08:10:54 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 08:10:54 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 08:27:18 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:27:18 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-10')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:27:50 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:27:50 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'selesai', '2022-07-04')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:28:28 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:28:28 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'selesai', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:28:57 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:28:57 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:30:28 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: No such host is known. 
+ERROR - 2022-07-28 08:31:13 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:31:13 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:34:02 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:34:02 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:34:03 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:34:03 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:34:16 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:34:16 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:36:06 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:36:06 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:36:07 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:36:07 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:39:24 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:39:24 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:39:25 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:39:25 --> Call to a member function getResultArray() on bool
+in APPPATH\Models\PengajuanTugasKerjaModel.php on line 112.
+ 1 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:39:39 --> Column 'status' in where clause is ambiguous
+CRITICAL - 2022-07-28 08:39:39 --> Column 'status' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status` = \'dalam_pengerjaan\'
+AND `tgl_pengajuan` >= \'2022-07-01\'
+AND `tgl_pengajuan` <= \'2022-07-15\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status` = \'dalam_pengerjaan\'
+AND `tgl_pengajuan` >= \'2022-07-01\'
+AND `tgl_pengajuan` <= \'2022-07-15\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status` = \'dalam_pengerjaan\'
+AND `tgl_pengajuan` >= \'2022-07-01\'
+AND `tgl_pengajuan` <= \'2022-07-15\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status` = :status:
+AND `tgl_pengajuan` >= :tgl_pengajuan:
+AND `tgl_pengajuan` <= :tgl_pengajuan.1:', [...], false)
+ 5 APPPATH\Models\PengajuanTugasKerjaModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:42:31 --> Unknown column 'status_tugas' in 'where clause'
+CRITICAL - 2022-07-28 08:42:31 --> Unknown column 'status_tugas' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status_tugas` = \'dalam_pengerjaan\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` >= \'2022-07-01\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` <= \'2022-07-15\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status_tugas` = \'dalam_pengerjaan\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` >= \'2022-07-01\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` <= \'2022-07-15\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status_tugas` = \'dalam_pengerjaan\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` >= \'2022-07-01\'
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` <= \'2022-07-15\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *, `pengajuan_tugas_kerja`.`status` as `status_tugas`
+FROM `pengajuan_tugas_kerja`
+JOIN `user` ON `user`.`no_employee` = `pengajuan_tugas_kerja`.`penanggung_jawab`
+WHERE `status_tugas` = :status_tugas:
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` >= :pengajuan_tugas_kerja.tgl_pengajuan:
+AND `pengajuan_tugas_kerja`.`tgl_pengajuan` <= :pengajuan_tugas_kerja.tgl_pengajuan.1:', [...], false)
+ 5 APPPATH\Models\PengajuanTugasKerjaModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Beranda.php(40): App\Models\PengajuanTugasKerjaModel->cari('2022-07-01', 'dalam_pengerjaan', '2022-07-15')
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Admin\Beranda->cari()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Beranda))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-28 08:49:13 --> Email: sendWithSmtp throwed fsockopen(): unable to connect to ssl://smtp.googlemail.com:465 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+)
+ERROR - 2022-07-28 09:46:26 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 09:46:26 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 09:46:26 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 09:46:26 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 09:53:04 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 09:53:04 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 09:53:04 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 09:53:04 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 09:55:28 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 09:55:28 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 09:55:28 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 09:55:28 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 09:57:54 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 09:57:54 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 09:57:54 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 09:57:54 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 10:20:50 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 10:20:50 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 10:20:50 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 10:20:50 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 10:25:04 --> Duplicate entry '0123456789' for key 'PRIMARY'
+ERROR - 2022-07-28 10:25:04 --> Duplicate entry '987654321' for key 'PRIMARY'
+ERROR - 2022-07-28 10:25:04 --> Duplicate entry '700142' for key 'PRIMARY'
+ERROR - 2022-07-28 10:25:04 --> Duplicate entry '700203' for key 'PRIMARY'
+ERROR - 2022-07-28 10:25:04 --> Duplicate entry '700150' for key 'PRIMARY'

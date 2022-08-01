@@ -5,6 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 class Role extends Migration
+// migration = membuat dan memodifikasi tabel yang ada pada basisdata tanpa harus menggangu tabel dan data yang sudah ada.
 {
     public function up()
     {

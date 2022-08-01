@@ -20,6 +20,7 @@
 
 
     <?php
+    // ketika kursor diarahkan ke gambar pada modals ubah maka akan membesar dengan ukuran 2.5x dari gambar
     $uri = current_url(true);
     ?>
     <?php if ($uri->getSegment(3) == 'beranda') { ?>
@@ -28,8 +29,6 @@
                 transform: scale(2.5)
             }
         </style>
-        <!-- <link href="<? php // base_url();
-                            ?>/assets/dist/css/lightbox.min.css" rel="stylesheet"> -->
     <?php } ?>
     <?php
 
@@ -52,10 +51,10 @@
     </div>
     </div>
     </div>
-    <!-- Configure a few settings and attach camera -->
+    <!-- menampilkan alert pakai js dan php -->
     <?php if (session()->getFlashdata('success_title') && session()->getFlashdata('success_text')) { ?>
         <script>
-            window.addEventListener('DOMContentLoaded', event => {
+            window.addEventListener('DOMContentLoaded', event => { //domcontentloaded ketika di refresh maka fungsi itu tersebut di eksekusi
                 Swal.fire({
                     icon: 'success',
                     title: '<?= session()->getFlashdata('success_title'); ?>',
@@ -97,12 +96,12 @@
         function swalLogout() {
             Swal.fire({
                 title: 'Apakah Anda Yakin',
-                text: "Yakin Logout dari website ini",
+                text: "Akan Log Out Akun?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#87B4DE;',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'OK!'
+                confirmButtonText: 'YA!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = "<?= base_url('/logout'); ?>"
@@ -113,12 +112,12 @@
         function showSwalSelesai(status, id, name) {
             Swal.fire({
                 title: 'Apakah Anda Yakin',
-                text: "Yakin Bahwa Semua Status Akan Selesai",
+                text: "Bahwa Semua Status Akan Selesai?",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#87B4DE;',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'OK!'
+                confirmButtonText: 'YA!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = `<?= base_url('/admin/pengajuan/ubah_progress_status/'); ?>/${status}/${id}`
@@ -129,12 +128,12 @@
         function showSwalSelesaiKaryawan(status, id) {
             Swal.fire({
                 title: 'Apakah Anda Yakin',
-                text: "Yakin Bahwa Semua Status Akan Selesai",
+                text: "Bahwa Semua Status Akan Selesai?",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#87B4DE;',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'OK!'
+                confirmButtonText: 'YA!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = `<?= base_url('/karyawan/pengajuan/ubah_progress_status/'); ?>/${status}/${id}`
@@ -144,7 +143,6 @@
     </script>
     <script src="<?= base_url() . '/assets/js/jquery-3.3.1.min.js'; ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="<?= base_url() . '/assets/js/scripts.js'; ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.23/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url() . 'assets/demo/chart-area-demo.js'; ?>"></script>
@@ -159,6 +157,7 @@
         $pic = isset($_GET['cari_pic']) ?? $_GET['cari_pic'];
         $status = isset($_GET['cari_status']) ?? $_GET['cari_status'];
         $l = $pengajuan->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, $pic, $status);
+        
         if (session('nama_role') == $role::ROLE_KARYAWAN) {
             $p = $pengajuan->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, session('no_employee'), $status);
             $nol = 2;
@@ -169,7 +168,7 @@
                 echo "\n";
                 echo    "title: 'Apakah Anda Yakin',";
                 echo "\n";
-                echo    'text: "Anda Yakin Mengubah Data Ini ?",';
+                echo    'text: "Akan Mengubah Data Ini?",';
                 echo "\n";
                 echo     "icon: 'warning',";
                 echo "\n";
@@ -179,7 +178,7 @@
                 echo "\n";
                 echo     "cancelButtonColor: '#d33',";
                 echo "\n";
-                echo     "confirmButtonText: 'OK!'";
+                echo     "confirmButtonText: 'YA!'";
                 echo "\n";
                 echo     "}).then((result) => {";
                 echo "\n";
@@ -195,8 +194,13 @@
                 echo "\n";
                 $nol++;
             }
-        }
+            ?>
 
+        window.karyawanP = <?= count($p); ?>;
+        <?php
+        }
+        ?>
+        <?php
         $nop = 2;
 
         foreach ($l as $k) {
@@ -206,7 +210,7 @@
             echo "\n";
             echo    "title: 'Apakah Anda Yakin',";
             echo "\n";
-            echo    'text: "Anda Yakin Mengubah Data Ini ?",';
+            echo    'text: "Akan Mengubah Data Ini?",';
             echo "\n";
             echo     "icon: 'warning',";
             echo "\n";
@@ -216,7 +220,7 @@
             echo "\n";
             echo     "cancelButtonColor: '#d33',";
             echo "\n";
-            echo     "confirmButtonText: 'OK!'";
+            echo     "confirmButtonText: 'YA!'";
             echo "\n";
             echo     "}).then((result) => {";
             echo "\n";
@@ -233,9 +237,9 @@
             $nop++;
         }
         ?>
+        window.adminL = <?= count($l); ?>;
     </script>
-    <!-- <script src="<?php //base_url();
-                        ?>/assets/dist/js/lightbox-plus-jquery.min.js"></script> -->
+    <script src="<?= base_url() . '/assets/js/scripts.js'; ?>"></script>
 </body>
 
 </html>
