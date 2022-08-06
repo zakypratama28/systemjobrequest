@@ -19,11 +19,15 @@
                </div>
                <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input class="form-control" type="text" value="<?= $user['password']; ?>" readonly>
+                    <input class="form-control" type="password" value="<?= $user['password']; ?>" readonly>
                </div>
                <div class="form-group">
                     <label class="form-label">Nama</label>
                     <input class="form-control" type="text" value="<?= $user['nama']; ?>" readonly>
+               </div>
+               <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" type="email" value="<?= $user['email']; ?>" readonly>
                </div>
                <div class="form-group">
                     <label class="form-label">Department</label>
@@ -51,7 +55,7 @@
                     use App\Models\RoleModel as RLModel;
 
                     $role = new RLModel();
-                    if (session('nama_role') == $role::ROLE_KARYAWAN) {
+                    if (session('nama_role') == $role::ROLE_KARYAWAN) { //jika login dengan role maka akan kembali ke beranda role
                     ?>
                          <a href="<?= base_url('karyawan/beranda'); ?>" class="btn btn-primary">Kembali</a>
                     <?php  } else { ?>

@@ -9,6 +9,7 @@ class PengajuanTugasKerjaModel extends Model
     protected $table = 'pengajuan_tugas_kerja';
     protected $useTimestamps = false;
     protected $allowedFields = [
+        'id_pengajuan',
         'no_employee',
         'nama_pengajuan',
         'activity',
@@ -25,6 +26,24 @@ class PengajuanTugasKerjaModel extends Model
     ];
     protected $primaryKey = 'id_pengajuan';
 
+    public function kodeOtomatis()
+    {
+	    // $query = $this->db->table($this->table);
+	    // $query->select('RIGHT(id_pengajuan,3) as id_pengajuan', FALSE);
+	    // $query->orderBy('id_pengajuan','DESC');    
+	    // $query->limit(1);    
+        $query = $this->db->query('SELECT RIGHT(id_pengajuan,3) as id_pengajuan from pengajuan_tugas_kerja ORDER BY id_pengajuan DESC LIMIT 1');
+	        if($query->getNumRows() <> 0){      
+	             $data = $query->getRow();
+	             $kode = intval($data->id_pengajuan) + 1; 
+	        }else{      
+	             $kode = 1;  
+	        }
+	    $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
+	    $kodetampil = "PKB".$batas;
+	    return $kodetampil;  
+    }
+
     public function getPengajuan($id = false)
     {
         if ($id) {
@@ -38,6 +57,7 @@ class PengajuanTugasKerjaModel extends Model
     public function savePengajuan($data)
     {
         $builder = $this->db->table($this->table);
+        //builder=class yg disediakan oleh CI yang manipulasi data dari sebuah database, menggunakan script yang lebih minimal
         return $builder->insert($data);
     }
 
@@ -56,7 +76,7 @@ class PengajuanTugasKerjaModel extends Model
     public function listPengajuan($name, $tgl, $lokasi, $no_employee = false, $pic = false, $status = false)
     {
         $builder = $this->db->table($this->table);
-        $builder->select('*,pengajuan_tugas_kerja.status as status_tugas');
+        $builder->select('*,pengajuan_tugas_kerja.status as status_tugas'); //menerima parameter kedua opsional
         $builder->join('user', 'user.no_employee =  pengajuan_tugas_kerja.penanggung_jawab');
         if (isset($name) && $name != '') {
             $builder->like('pengajuan_tugas_kerja.nama_pengajuan', $name);
@@ -89,9 +109,9 @@ class PengajuanTugasKerjaModel extends Model
 
     public function countAllOrRow($id = false, $where = null, $no_employee = false)
     {
-        $builder = $this->db->table($this->table);
+        $builder = $this->db->table($this->table); //Builder adalah class pada CodeIgniter untuk bekerja dengan Database.
         if ($id && $where) {
-            $builder->where($where, $id);
+            $builder->where($where, $id); //builder mempermudah dalam menulis query
         }
         if ($no_employee) {
             $builder->where('penanggung_jawab', $no_employee);
@@ -116,7 +136,7 @@ class PengajuanTugasKerjaModel extends Model
     {
         $builder = $this->db->table($this->table);
         $builder->select('*,pengajuan_tugas_kerja.status as status_tugas');
-        $builder->join('user', 'user.no_employee = ' . $this->table . '.no_employee');
+        $builder->join('user', 'user.no_employee = ' . $this->table . '.penanggung_jawab');
         $builder->where($this->table . '.id_pengajuan', $id);
         return $builder->get()->getRowArray();
     }

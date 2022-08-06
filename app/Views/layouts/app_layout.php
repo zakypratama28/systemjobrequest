@@ -157,7 +157,6 @@
         $pic = isset($_GET['cari_pic']) ?? $_GET['cari_pic'];
         $status = isset($_GET['cari_status']) ?? $_GET['cari_status'];
         $l = $pengajuan->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, $pic, $status);
-        
         if (session('nama_role') == $role::ROLE_KARYAWAN) {
             $p = $pengajuan->listPengajuan($nama_pengajuan, $tgl_pengajuan, $lokasi, false, session('no_employee'), $status);
             $nol = 2;
@@ -194,13 +193,11 @@
                 echo "\n";
                 $nol++;
             }
-            ?>
-
-        window.karyawanP = <?= count($p); ?>;
+        ?>
+            window.karyawanP = <?= count($p); ?>;
         <?php
         }
-        ?>
-        <?php
+
         $nop = 2;
 
         foreach ($l as $k) {

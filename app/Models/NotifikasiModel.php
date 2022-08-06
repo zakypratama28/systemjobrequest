@@ -28,7 +28,7 @@ class NotifikasiModel extends Model
     {
         $builder = $this->db->table($this->table);
         $builder->where('aktif', 'belum');
-        if ($id && $where) { // jika isi dari id dan kolom
+        if ($id && $where) { // jika isi dari id notifikasi dan aktif
             $builder->where($where, $id);
         }
         $builder->where('no_employee', session('no_employee'));
@@ -41,8 +41,8 @@ class NotifikasiModel extends Model
         $builder = $this->db->table($this->table);
         $builder->where('aktif', 'belum');
         $builder->where('no_employee', session('no_employee'));
-        $builder->limit(3);
-        $builder->orderBy('id_notifikasi', 'DESC');
+        $builder->limit(3); // batas tampilan notifikasi di sistem yaitu 3
+        $builder->orderBy('id_notifikasi', 'DESC'); // mengurutkan bersadarkan terbaru
         return $builder->get()->getResultArray();
     }
 }

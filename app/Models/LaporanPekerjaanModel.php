@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class LaporanPekerjaanModel extends Model
 {
-    // tabel ini tidak perlu karena sudah menggunakan window.print
+    // class ini tidak perlu karena sudah menggunakan window.print
     protected $table = 'laporan_pekerjaan';
     protected $useTimestamps = false;
     protected $allowedFields = [

@@ -28,6 +28,7 @@ class Pengajuan extends BaseController
             $upload->move(ROOTPATH . 'public/uploads/', $fileNameUpload);
         }
         $data = [
+            'id_pengajuan' => $this->request->getVar('id_pengajuan'),
             'no_employee' => session('no_employee'),
             'nama_pengajuan' => $this->request->getVar('nama'),
             'activity' => $this->request->getVar('aktivitas'),
@@ -47,7 +48,7 @@ class Pengajuan extends BaseController
             // jika pic nya diri sendiri maka kirim email diri sendiri dan notifikasi diri sendiri
             $user = $this->userModel->getUser(session('no_employee'), 'no_employee');
             SendEmail::send($user['email'], $user['email'], 'Reminder Job Request', $data); //jika pic dirinya sendiri maka akan terkirim ke email
-            $this->notifikasiController->sendMessage('Data pekerjaan dari Anda berupa' . $this->request->getVar('status'), session('no_employee')); //jika pic dirinya sendiri maka akan terkirim ke notif di web
+            $this->notifikasiController->sendMessage('Data pekerjaan dari Anda berupa ' . $this->request->getVar('status'), session('no_employee')); //jika pic dirinya sendiri maka akan terkirim ke notif di web
         } else {
             //sebaliknya pic bukan diri sendiri maka kirim email untuk orang pic dan notifikasi diri sendiri dan picnya
             $userAdmin = $this->userModel->getUser(session('no_employee'), 'no_employee');
@@ -158,5 +159,16 @@ class Pengajuan extends BaseController
         session()->setFlashdata('success_text', "Anda Telah Memberikan Umpan Balik");
         session()->setFlashdata('success_title', "Sukses");
         return redirect()->to(base_url('/admin/pengajuan/umpan_balik/' . $id));
+    }
+
+    public function rekap_umpan_balik($id)
+    {
+        $model = $this->pengajuanTugasKerjaModel->getUserPengajuan($id);
+        if (!$model) { // jika data tidak ditemukan maka menampilkan halaman 404
+            // show_404();
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+        $data['pengajuan'] = $model;
+        return view('admin/rekap_umpan_balik', $data);
     }
 }

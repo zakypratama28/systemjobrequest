@@ -1,25 +1,25 @@
 <?php
- 
+
 namespace App\Models;
- 
+
 use CodeIgniter\Model;
- 
+
 class RoleModel extends Model
 {
-    const ROLE_ADMIN = 'admin';
+    const ROLE_ADMIN = 'leader'; // role model pengajuan tugas
     const ROLE_KARYAWAN = 'karyawan';
     protected $table = 'role';
-    protected $useTimestamps = false; 
+    protected $useTimestamps = false;
     protected $allowedFields = [
-    	'nama_role'
+        'nama_role'
     ];
- 	protected $primaryKey = 'role_id';
+    protected $primaryKey = 'role_id'; //role id=primary key
 
-    public function getRole($id = false,$where = null)
+    public function getRole($id = false, $where = null)
     {
         if ($id && $where) {
             return $this->where($where, $id)
-                  ->first();
+                ->first();
         } else {
             return $this->findAll();
         }
@@ -31,16 +31,15 @@ class RoleModel extends Model
         return $builder->insert($data);
     }
 
-    public function updateRole($data,$id)
+    public function updateRole($data, $id) //ubah
     {
         $builder = $this->db->table($this->table);
-        return $builder->where($this->primaryKey,$id)->update($data);
+        return $builder->where($this->primaryKey, $id)->update($data);
     }
 
-    public function deleteRole($id)
+    public function deleteRole($id) //hapus
     {
         $builder = $this->db->table($this->table);
-        return $builder->where($this->primaryKey,$id)->delete();
+        return $builder->where($this->primaryKey, $id)->delete();
     }
-
 }

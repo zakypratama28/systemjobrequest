@@ -11,8 +11,8 @@ class PengajuanTugasKerja extends Migration
     {
         $this->forge->addField([
             'id_pengajuan'        => [
-                'type'           => 'INT',
-                'constraint'     => 11,
+                'type'           => 'VARCHAR',
+                'constraint'     => 50,
                 'auto_increment' => true
             ],
             'no_employee'       => [

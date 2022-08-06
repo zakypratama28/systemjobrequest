@@ -20,7 +20,7 @@ $role = new RLModel();
     <!-- Content Row -->
     <div class="row justify-content-center">
 
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- progres pekerjaan baru -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card py-2">
                 <div class="card-body">
@@ -38,7 +38,7 @@ $role = new RLModel();
             </div>
         </div>
 
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- progres dalam pengerjaan -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card py-2">
                 <div class="card-body">
@@ -56,7 +56,7 @@ $role = new RLModel();
             </div>
         </div>
 
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- progres pekerjaan selesai -->
         <div class="col-xl-3 col-md-6 mb-4">
             <!-- <div class="card py-2" onclick="showSwalSelesai('selesai');"> -->
             <div class="card py-2">
@@ -87,6 +87,8 @@ $role = new RLModel();
 
                 <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#exampleDownload" data-bs-whatever="@getbootstrap" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                <!--<a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-secondary shadow-sm">
+                    <i class="fas fa-search fa-sm text-white-50"></i> Download Rekap Umpan Balik</a>-->
             </div>
             <div>
                 Cari Berdasarkan :
@@ -158,17 +160,18 @@ $role = new RLModel();
                                     <img src="<?= base_url() . '/uploads/' . $k['foto']; ?>" width="100" height="100">
                                 </a>
                             </td>
+                            <!--dropdown status pekerjaan di tabel-->
                             <td <?php $status = 'text-success'; ?> <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?> <?php $status = 'text-danger'; ?> <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?> <?php $status = 'text-warning'; ?> <?php } ?> class="<?= $status; ?>">
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
-                                        <option value="pengajuan_baru" selected><?= $k['status_tugas']; ?></option>
+                                        <option value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
-                                        <option style="color:yellow;" value="dalam_pengerjaan" selected><?= $k['status_tugas']; ?></option>
+                                        <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else { ?>
@@ -177,15 +180,20 @@ $role = new RLModel();
                                 <!-- </form> -->
                             </td>
                             <td>
+                                <!--ubah data-->
                                 <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleUbah<?= $no; ?>">
-                                    <span class="fas fa-edit p-1 text-white rounded"></span>
+                                    <span class="fas fa-edit text-white rounded"></span>
                                 </button>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleHapus<?= $no; ?>">
-                                    <span class="fas fa-trash-alt p-1 text-white rounded" onclick="deleteData()"></span>
+                                    <span class="fas fa-trash text-white rounded" onclick="deleteData()"></span>
+                                    <!--hapus data-->
                                 </button>
-                                <?php if ($k['status_tugas'] == 'selesai') { ?>
-                                    <a href="<?= base_url() . '/admin/pengajuan/umpan_balik/' . $k['id_pengajuan']; ?>" class="btn btn-warning btn-sm" style="font-size:10px;">Umpan Balik</a>
-                                <?php } ?>
+                                <div>
+                                    <?php if ($k['status_tugas'] == 'selesai') { ?>
+                                        <!--status pekerjaan di page umpan balik-->
+                                        <a href="<?= base_url() . '/admin/pengajuan/umpan_balik/' . $k['id_pengajuan']; ?>" class="btn btn-warning btn-sm" style="font-size:10px;">Umpan Balik</a>
+                                    <?php } ?>
+                                </div>
                             </td>
                         </tr>
                         <div class="modal fade" id="exampleHapus<?= $no; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -224,10 +232,30 @@ $role = new RLModel();
                                                 <div class="mb-3 col-12">
                                                     <div class="d-flex justify-between row">
                                                         <div class="col-3">
-                                                            <label class="form-label">Nama:</label>
+                                                            <label class="form-label">ID Pengajuan</label>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <input type="text" required value="<?= $k['id_pengajuan']; ?>" name="id_pengajuan" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-12">
+                                                    <div class="d-flex justify-between row">
+                                                        <div class="col-3">
+                                                            <label class="form-label">No Employee</label>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <input type="text" required value="<?= session('no_employee'); ?>" name="no_employee" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-12">
+                                                    <div class="d-flex justify-between row">
+                                                        <div class="col-3">
+                                                            <label class="form-label">Permintaan Oleh:</label>
                                                         </div>
                                                         <div class="col-9">
-                                                            <input type="text" required value="<?= $k['nama_pengajuan']; ?>" name="ubah_nama" class="form-control" placeholder="Tulis Nama">
+                                                            <input type="text" required value="<?= session('nama'); ?>" name="ubah_nama" class="form-control" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -310,7 +338,7 @@ $role = new RLModel();
                                                             <label class="form-label">Tgl Actual Selesai:</label>
                                                         </div>
                                                         <div class="col-9 d-flex flex-column">
-                                                            <div class="form-group mt-1">
+                                                            <div class="form-group mb-1">
                                                                 <button type="button" id="toggleDisabled<?= $no;?>" class="btn btn-sm btn-primary">Toggle Disabled Or Sabled</button>
                                                             </div>
                                                             <div class="form-group">
@@ -392,7 +420,7 @@ $role = new RLModel();
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-2">
-                                        <label class="form-label">Nama: </label>
+                                        <label class="form-label">Permintaan Oleh: </label>
                                     </div>
                                     <div class="col-1">
                                         :
@@ -552,10 +580,30 @@ $role = new RLModel();
                         <div class="mb-3 col-12">
                             <div class="d-flex justify-between row">
                                 <div class="col-3">
-                                    <label class="form-label">Nama:</label>
+                                    <label class="form-label">ID Pengajuan</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" required value="<?= $kode_otomatis;?>" name="id_pengajuan" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">No Employee</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" required value="<?= session('no_employee'); ?>" name="no_employee" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Permintaan Oleh:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="nama" class="form-control" placeholder="Tulis Nama">
+                                    <input type="text" required value="<?php echo session('nama'); ?>" id="nama" name="nama" class="form-control" readonly>
                                 </div>
                             </div>
                         </div>

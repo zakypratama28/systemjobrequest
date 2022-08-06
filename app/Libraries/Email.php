@@ -8,7 +8,7 @@ class Email
 // fitur triger ke google email
 {
     public static function send($from, $to, $subject, $message)
-    // terkirim ke email yang dituju, menggunakan akun email.
+    // controler terkirim ke email yang dituju, menggunakan akun email.
     {
         $config = array(
             'protocol' => $_ENV['email.protocol'],

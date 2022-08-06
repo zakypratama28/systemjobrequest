@@ -79,7 +79,7 @@ class UserModel extends Model
     public function getUserJoinRole($id = false, $where = null)
     { //$builder variabel untuk mempermudah penulisan
         $builder = $this->db->table($this->table);
-        $builder->join('role', 'role.role_id=user.role_id');
+        $builder->join('role', 'role.role_id=user.role_id'); // join 2 tabel yg berbeda (role dan user)
         if ($id && $where) {
             $builder->where($where, $id);
             return $builder->get()->getRowArray();

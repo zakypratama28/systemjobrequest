@@ -32,6 +32,7 @@ class Beranda extends BaseController
         $data['dalam_pengerjaan'] = $this->pengajuanTugas->countAllOrRow('dalam_pengerjaan', 'status', session('no_employee'));
         $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai', 'status', session('no_employee'));
         $data['user'] = $this->user->getUserJoinRole();
+        $data['kode_otomatis'] = $this->pengajuanTugas->kodeOtomatis();
 
         return view('karyawan/beranda', $data);
     }

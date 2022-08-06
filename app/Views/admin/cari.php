@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <!--desain tampilan tabel untuk cetak pdf biar rapi-->
+  <!--desain tampilan tabel untuk cetak pdf biar rapi window.print-->
 
   <style>
     @media print {

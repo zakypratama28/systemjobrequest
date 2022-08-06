@@ -129,7 +129,7 @@ $role = new RLModel();
                             <td><?= $k['activity']; ?></td>
                             <td><?= $k['deskripsi']; ?></td>
                             <td><?= $k['lokasi']; ?></td>
-                            <td><?= $k['penanggung_jawab']; ?></td>
+                            <td><?= $k['nama']; ?></td>
                             <td>
                                 <?php if ($k['tgl_pengajuan'] == NULL) {
                                     echo '-';
@@ -161,13 +161,13 @@ $role = new RLModel();
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
-                                        <option value="pengajuan_baru" selected><?= $k['status_tugas']; ?></option>
+                                        <option value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
                                     <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
-                                        <option style="color:yellow;" value="dalam_pengerjaan" selected><?= $k['status_tugas']; ?></option>
+                                        <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else { ?>
@@ -220,10 +220,10 @@ $role = new RLModel();
                                                 <div class="mb-3 col-12">
                                                     <div class="d-flex justify-between row">
                                                         <div class="col-3">
-                                                            <label class="form-label">Nama:</label>
+                                                            <label class="form-label">Permintaan Oleh:</label>
                                                         </div>
                                                         <div class="col-9">
-                                                            <input type="text" required value="<?= $k['nama_pengajuan']; ?>" name="ubah_nama" class="form-control" placeholder="Tulis Nama">
+                                                            <input type="text" required value="<?= $k['nama_pengajuan']; ?>" name="ubah_nama" class="form-control" placeholder="Tulis Nama" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -266,13 +266,7 @@ $role = new RLModel();
 
                                                             <select name="ubah_pic" class="form-control">
                                                                 <option value="">--Pilih PIC--</option>
-                                                                <?php foreach ($user as $d) { ?>
-                                                                    <?php if ($d['nama_role'] == $role::ROLE_KARYAWAN) { ?>
-                                                                        <option <?php if ($k['penanggung_jawab'] == $d['no_employee']) {
-                                                                                    echo 'selected';
-                                                                                } ?> value="<?= $d['no_employee']; ?>"><?= $d['nama']; ?> - <?= $d['nama_role']; ?></option>
-                                                                    <?php } ?>
-                                                                <?php } ?>
+                                                                <option selected value="<?= session('no_employee');?>"><?= session('nama');?> - <?= session('nama_role');?></option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -385,7 +379,7 @@ $role = new RLModel();
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-2">
-                                        <label class="form-label">Nama: </label>
+                                        <label class="form-label">Permintaan Oleh: </label>
                                     </div>
                                     <div class="col-1">
                                         :
@@ -544,10 +538,30 @@ $role = new RLModel();
                         <div class="mb-3 col-12">
                             <div class="d-flex justify-between row">
                                 <div class="col-3">
-                                    <label class="form-label">Nama:</label>
+                                    <label class="form-label">ID Pengajuan</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" required value="<?= $kode_otomatis; ?>" name="id_pengajuan" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">No Employee</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" required value="<?= session('no_employee'); ?>" name="no_employee" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12">
+                            <div class="d-flex justify-between row">
+                                <div class="col-3">
+                                    <label class="form-label">Permintaan Oleh:</label>
                                 </div>
                                 <div class="col-9">
-                                    <input type="text" required name="nama" class="form-control" placeholder="Tulis Nama">
+                                    <input type="text" required value="<?= session('nama'); ?>" id="nama" name="nama" class="form-control" readonly>
                                 </div>
                             </div>
                         </div>
@@ -590,11 +604,12 @@ $role = new RLModel();
                                     <!-- <input type="text" required name="pic" class="form-control" placeholder="Tulis PIC"> -->
                                     <select name="pic" required class="form-control">
                                         <option value="">--PILIH PIC--</option>
-                                        <?php foreach ($user as $k) { ?>
-                                            <?php if ($k['nama_role'] == $role::ROLE_KARYAWAN) { ?>
-                                                <option value="<?= $k['no_employee']; ?>"><?= $k['nama']; ?> - <?= $k['nama_role']; ?></option>
-                                            <?php } ?>
-                                        <?php } ?>
+                                        <option value="<?= session('no_employee');?>"><?= session('nama');?></option>
+                                        <?php// foreach ($user as $k) { ?>
+                                            <?php// if ($k['nama_role'] == $role::ROLE_KARYAWAN) { ?>
+                                                <!-- <option value="<?php// $k['no_employee']; ?>"><?php // $k['nama']; ?> - <?php //$k['nama_role']; ?></option> -->
+                                            <?php //} ?>
+                                        <?php //} ?>
                                     </select>
                                 </div>
                             </div>

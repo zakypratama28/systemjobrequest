@@ -21,8 +21,8 @@ class Auth extends BaseController
 
     public function login()
     {
-        if (!$this->validate($this->userModel->validationAuthLogin())) {
-            session()->setFlashdata('error', $this->validator->listErrors());
+        if (!$this->validate($this->userModel->validationAuthLogin())) { //mengembalikan nilai true jika berhasil
+            session()->setFlashdata('error', $this->validator->listErrors()); //flash message eror
             // return redirect()->back()->withInput();
             return redirect()->to(base_url('/'));
         } else {
@@ -33,7 +33,7 @@ class Auth extends BaseController
                 $data = $this->userModel->getUserJoinRole($no_employee, 'no_employee');
                 // dan mengambil data dan di cocokkan isi data lalu munculkan data
                 if (password_verify($password, $data['password'])) {
-                    // password dari inputan dan password dari data table di cek keduanya apakah valid
+                    // password dari inputan dan password dari userseeder di cek keduanya apakah valid
                     // kalau valid masukan di session data yang diperlukan apa saja
                     session()->set([
                         'no_employee' => $data['no_employee'],
@@ -41,7 +41,7 @@ class Auth extends BaseController
                         'nama' => $data['nama'],
                         'login' => TRUE
                     ]);
-                    session()->setFlashdata('success_text', "Selamat Datang " . $data['nama']);
+                    session()->setFlashdata('success_text', "Selamat Datang " . $data['nama']); //flash message berhasil login
                     session()->setFlashdata('success_title', "Login Berhasil");
                     // cek lagi apakah rolenya benar berdasarkan nama role lalu masuk secara langsung ke halaman masing masing
                     if ($data['nama_role'] == $this->roleModel::ROLE_ADMIN) {
@@ -67,7 +67,7 @@ class Auth extends BaseController
 
     public function logout()
     {
-        // intinya menghapus session yang tersimpan di browser
+        // menghapus session yang tersimpan di browser
         $session = session();
         $session->destroy();
         return redirect()->to(base_url('/'));

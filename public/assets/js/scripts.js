@@ -76,7 +76,7 @@ function getSelectUbahKaryawan(seletedObject,id,name)
     }
 }
 
-for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) {
+for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) { //
     document.getElementsByClassName('rating-input')[i].onclick = (e) => {
         const self = this
         document.getElementsByClassName('rating')[0].classList.add('active')
@@ -84,12 +84,17 @@ for (i = 0; i < document.getElementsByClassName('rating-input').length; i++) {
     }
 }
 
+function formatDate(date) { //function untuk mengubah format tanggal
+    const tmp = new Date(date).toLocaleDateString('id', { day:'2-digit', month: 'long', year: 'numeric'})
+    return tmp
+}
+
 function fetchNotif()
 {
     // untuk mengambil data dari php ke json, dan menampilkan notifikasi pada sistem
     // console.log('a');
     $.getJSON(`${window.BASE_URL}/baca-notifikasi`, function(result){ // menampilkan data dari PHP ke json lalu di tampilkan ke notifikasi
-        // console.log(result);
+        console.log(result);
         $('#countIcon').html(result[0]);
         $('#countNotif').html(result[0]);
         if (result[1].list.length > 0) {
@@ -98,7 +103,7 @@ function fetchNotif()
                 // $("div").append(field + " "); 
                 html += '<div class="notifications-item" onmouseout="goneNotif(this,'+ field.id_notifikasi +')">'
                 html += '<div class="text d-flex flex-column">'
-                html += '<label>'+ field.tanggal+'</label></br>';
+                html += '<label>'+ formatDate(field.tanggal) +'</label></br>';
                 html +=  '<span>'+field.pesan +'</span>'
                 html += '</div>'
                 html += '</div>'
@@ -140,8 +145,7 @@ let p = window.location.pathname.split('/')
     //menampilkan notifikasi ketika ada perubahan data selama 5 detik
     setInterval(fetchNotif,5000)    
 // }
-// console.log(window.adminL)
-let radioDisabled = false;
+
 if (window.adminL > 0) {
     for (let index = 2; index < window.adminL + 2; index++) {
         $('#toggleDisabled'+index).click(function() {
