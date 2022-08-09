@@ -31,6 +31,7 @@ class Beranda extends BaseController
         $data['selesai'] = $this->pengajuanTugas->countAllOrRow('selesai', 'status');
         $data['kode_otomatis'] = $this->pengajuanTugas->kodeOtomatis();
         $data['user'] = $this->user->getUserJoinRole();
+        $data['rekap_karyawan'] = $this->pengajuanTugas->employeeRatingDistinct();
         return view('admin/beranda', $data);
     }
 

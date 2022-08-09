@@ -160,13 +160,13 @@ $role = new RLModel();
                             <td <?php $status = 'text-success'; ?> <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?> <?php $status = 'text-danger'; ?> <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?> <?php $status = 'text-warning'; ?> <?php } ?> class="<?= $status; ?>">
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,'<?= $k['id_pengajuan']; ?>')">
                                         <option value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,<?= $k['id_pengajuan']; ?>,'karyawan')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbahKaryawan(this,'<?= $k['id_pengajuan']; ?>')">
                                         <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>

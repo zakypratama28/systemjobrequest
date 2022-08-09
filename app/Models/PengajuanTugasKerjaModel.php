@@ -140,4 +140,31 @@ class PengajuanTugasKerjaModel extends Model
         $builder->where($this->table . '.id_pengajuan', $id);
         return $builder->get()->getRowArray();
     }
+
+    public function sumAvgRating($no_employee,$dari,$sampai)
+    { 
+        $query = "SELECT SUM(rating) AS jmlh_rating,AVG(rating) AS rata_rating FROM pengajuan_tugas_kerja WHERE pengajuan_tugas_kerja.status = 'selesai' AND pengajuan_tugas_kerja.rating != '0'";
+        return $this->db->query($query)->getRowArray();
+    }
+
+    public function employeeRating($no_employee,$dari,$sampai)
+    {
+        // var_dump($no_employee);
+        $builder = $this->db->table($this->table);
+        $builder->select('*, pengajuan_tugas_kerja.status as status_tugas');
+        $builder->join('user', 'user.no_employee = '.$this->table.'.penanggung_jawab');
+        $builder->where('pengajuan_tugas_kerja.rating !=','0');
+        $builder->where('pengajuan_tugas_kerja.status','selesai');
+        $builder->where('pengajuan_tugas_kerja.tgl_pengajuan >=', $dari);
+        $builder->where('pengajuan_tugas_kerja.tgl_pengajuan <=', $sampai);
+        $builder->where('pengajuan_tugas_kerja.penanggung_jawab',$no_employee);
+        return $builder->get()->getResultArray();
+    }
+
+    public function employeeRatingDistinct()
+    {
+        $query = "SELECT DISTINCT user.nama as userNama, `role`.nama_role as roleNama, user.no_employee as userEmployee FROM pengajuan_tugas_kerja INNER JOIN user ON user.no_employee = pengajuan_tugas_kerja.penanggung_jawab
+        JOIN `role` ON `role`.role_id = user.role_id WHERE pengajuan_tugas_kerja.status = 'selesai' AND pengajuan_tugas_kerja.rating != '0'";
+        return $this->db->query($query)->getResultArray();
+    }
 }

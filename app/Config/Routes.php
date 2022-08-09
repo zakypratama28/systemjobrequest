@@ -54,6 +54,8 @@ $routes->group('admin', ['filter' => 'authuseradmin'], function ($routes) {
     $routes->post('pengajuan/beri_umpan_balik/(:segment)', 'Admin\Pengajuan::beri_umpan_balik/$1');
     // cetak pdf umpan balik
     $routes->get('pengajuan/rekap_umpan_balik/(:segment)','Admin\Pengajuan::rekap_umpan_balik/$1');
+    // rekap umpan balik
+    $routes->get('pengajuan/download_rekap_umpan_balik','Admin\Pengajuan::download_rekap_umpan_balik');
 });
 // mengirimkan data notifikasi
 $routes->get('/baca-notifikasi', 'Notifikasi::fetchAll');

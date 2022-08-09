@@ -87,8 +87,8 @@ $role = new RLModel();
 
                 <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#exampleDownload" data-bs-whatever="@getbootstrap" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
-                <!--<a href="javascript:void" data-bs-toggle="modal" data-bs-target="#examplePencarian" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-secondary shadow-sm">
-                    <i class="fas fa-search fa-sm text-white-50"></i> Download Rekap Umpan Balik</a>-->
+                <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#exampleRekap" data-bs-whatever="@getbootstrap" class="btn btn-sm btn-warning shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Download Rekap Umpan Balik</a>
             </div>
             <div>
                 Cari Berdasarkan :
@@ -164,13 +164,13 @@ $role = new RLModel();
                             <td <?php $status = 'text-success'; ?> <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?> <?php $status = 'text-danger'; ?> <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?> <?php $status = 'text-warning'; ?> <?php } ?> class="<?= $status; ?>">
                                 <!-- <form action=""> -->
                                 <?php if ($k['status_tugas'] == 'pengajuan_baru') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,'<?= $k['id_pengajuan']; ?>')">
                                         <option value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:yellow;" value="dalam_pengerjaan">Dalam Pengerjaan</option>
                                         <option style="color:green" value="selesai">Selesai</option>
                                     </select>
                                 <?php } else if ($k['status_tugas'] == 'dalam_pengerjaan') { ?>
-                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,<?= $k['id_pengajuan']; ?>,'admin')">
+                                    <select style="background-color:white;border:none;" name="select_ubah" onchange="getSelectUbah(this,'<?= $k['id_pengajuan']; ?>')">
                                         <option style="color:yellow;" value="" disabled selected><?= $k['status_tugas']; ?></option>
                                         <option style="color:green;" value="selesai">Selesai</option>
                                     </select>
@@ -406,6 +406,71 @@ $role = new RLModel();
     </div>
 </div>
 
+<div class="modal fade" id="exampleRekap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cari Berdasarkan Rekap :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url().'/admin/pengajuan/download_rekap_umpan_balik';?>" target="__blank">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label class="form-label">Dari Tanggal: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="date" name="rekap_pengajuan_tanggal_dari" class="form-control" value="
+                                            <?php if (isset($_GET['rekap_pengajuan_tanggal_dari'])) {
+                                                echo  $_GET['rekap_pengajuan_tanggal_dari'];
+                                            } ?>">
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label">Sampai Tanggal: </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="date" name="rekap_pengajuan_tanggal_sampai" class="form-control" value="
+                                            <?php if (isset($_GET['rekap_pengajuan_tanggal_sampai'])) {
+                                                echo  $_GET['rekap_pengajuan_tanggal_sampai'];
+                                            } ?>">
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label">PIC </label>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-9">
+                                        <select name="rekap_pic" class="form-control">
+                                            <option value="">-- PILIH PIC --</option>
+                                            <?php// var_dump($rekap_karyawan);?>
+                                            <?php foreach ($rekap_karyawan as $k) { ?>
+                                                <option <?php if(isset($_GET['rekap_pic']) && $_GET['rekap_pic'] == $k['userEmployee']) { echo "selected";}?> value="<?= $k['userEmployee'];?>"><?= $k['userNama'];?> - <?= $k['roleNama'];?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary">Cari</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="examplePencarian" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

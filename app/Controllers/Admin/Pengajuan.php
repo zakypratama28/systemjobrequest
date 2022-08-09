@@ -171,4 +171,14 @@ class Pengajuan extends BaseController
         $data['pengajuan'] = $model;
         return view('admin/rekap_umpan_balik', $data);
     }
+
+    public function download_rekap_umpan_balik()
+    {
+        $data['dari'] = $this->request->getGet('rekap_pengajuan_tanggal_dari');
+        $data['sampai'] = $this->request->getGet('rekap_pengajuan_tanggal_sampai');
+        $pic = $this->request->getGet('rekap_pic'); //Pencarian PIC
+        $data['jumlahDanRata'] = $this->pengajuanTugasKerjaModel->sumAvgRating($pic,$data['dari'],$data['sampai']);
+        $data['list'] = $this->pengajuanTugasKerjaModel->employeeRating($pic,$data['dari'],$data['sampai']);
+        return view('admin/download_rekap_umpan_balik',$data);
+    }
 }
